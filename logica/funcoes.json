@@ -1,17 +1,275 @@
 {
-  "hipotese": true,
-  "nota": "Hipóteses, não conselhos de carreira. Ligações tag → função escolhidas pela equipa, sem validação.",
-  "funcoes": [
-    { "funcao": "Analista de dados", "tags": ["Curiosidade", "Foco", "Análise", "Números", "Investigação", "Honestidade"], "porque": "Gostas de ir ao fundo das coisas e os números contam-te histórias." },
-    { "funcao": "Programador/a", "tags": ["Foco", "Curiosidade", "Programação", "Resolução de problemas", "Persistência"], "porque": "Transformas problemas em passos e não largas até funcionar." },
-    { "funcao": "Psicólogo/a", "tags": ["Empatia", "Calma", "Escuta", "Cuidado", "Respeito", "Bondade"], "porque": "As pessoas sentem-se ouvidas e seguras contigo." },
-    { "funcao": "Mediador/a de conflitos", "tags": ["Calma", "Serenidade", "Mediação", "Negociação", "Justiça", "Respeito"], "porque": "Consegues juntar à mesa quem não se entende." },
-    { "funcao": "Comercial", "tags": ["Energia", "Entusiasmo", "Vendas", "Persuasão", "Comunicação", "Confiança"], "porque": "A tua energia faz os outros acreditarem no que propões." },
-    { "funcao": "Designer", "tags": ["Criatividade", "Sensibilidade", "Imaginação", "Design", "Coerência"], "porque": "Vês como as coisas podiam ser mais bonitas e mais simples." },
-    { "funcao": "Escritor/a de conteúdos", "tags": ["Imaginação", "Introspeção", "Escrita", "Narrativa", "Integridade"], "porque": "Pões em palavras o que os outros sentem." },
-    { "funcao": "Gestor/a de projeto", "tags": ["Determinação", "Foco", "Planeamento", "Organização", "Gestão de tempo", "Responsabilidade", "Compromisso"], "porque": "Fazes as coisas acontecer a tempo e com toda a gente alinhada." },
-    { "funcao": "Empreendedor/a", "tags": ["Ousadia", "Otimismo", "Liderança", "Estratégia", "Improviso", "Coragem"], "porque": "Dás o primeiro passo onde outros esperam." },
-    { "funcao": "Professor/a ou formador/a", "tags": ["Paciência", "Alegria", "Ensino", "Mentoria", "Facilitação", "Generosidade"], "porque": "Gostas de ver os outros crescer e sabes explicar." },
-    { "funcao": "Técnico/a de intervenção social", "tags": ["Empatia", "Sensibilidade", "Cuidado", "Escuta", "Solidariedade", "Lealdade"], "porque": "Não deixas ninguém para trás." }
-  ]
+ "hipotese": true,
+ "nota": "Hipóteses, não conselhos de carreira. Funções e frases da Parte A; tags traduzidas para as palavras da biblioteca MighT (tags_originais guarda a versão inicial). Sem validação.",
+ "funcoes": [
+  {
+   "funcao": "Analista de dados",
+   "tags": [
+    "Curioso",
+    "Lógico",
+    "Objectivo",
+    "Analisador",
+    "Investigador",
+    "Solucionador",
+    "Disciplina",
+    "Sinceridade"
+   ],
+   "porque": "Gostas de ir ao fundo das coisas e os números contam-te histórias.",
+   "tags_originais": [
+    "Curiosidade",
+    "Foco",
+    "Análise",
+    "Números",
+    "Investigação",
+    "Honestidade"
+   ]
+  },
+  {
+   "funcao": "Programador/a",
+   "tags": [
+    "Lógico",
+    "Prático",
+    "Inteligente",
+    "Solucionador",
+    "Concretizador",
+    "Criador",
+    "Persistência",
+    "Disciplina"
+   ],
+   "porque": "Transformas problemas em passos e não largas até funcionar.",
+   "tags_originais": [
+    "Foco",
+    "Curiosidade",
+    "Programação",
+    "Resolução de problemas",
+    "Persistência"
+   ]
+  },
+  {
+   "funcao": "Psicólogo/a",
+   "tags": [
+    "Empático",
+    "Sensível",
+    "Intuitivo",
+    "Sábio",
+    "Conselheiro",
+    "Moderador",
+    "Compaixão",
+    "Tolerância"
+   ],
+   "porque": "As pessoas sentem-se ouvidas e seguras contigo.",
+   "tags_originais": [
+    "Empatia",
+    "Calma",
+    "Escuta",
+    "Cuidado",
+    "Respeito",
+    "Bondade"
+   ]
+  },
+  {
+   "funcao": "Mediador/a de conflitos",
+   "tags": [
+    "Empático",
+    "Objectivo",
+    "Moderador",
+    "Tradutor",
+    "Conector",
+    "Comunicador",
+    "Tolerância",
+    "Integridade"
+   ],
+   "porque": "Consegues juntar à mesa quem não se entende.",
+   "tags_originais": [
+    "Calma",
+    "Serenidade",
+    "Mediação",
+    "Negociação",
+    "Justiça",
+    "Respeito"
+   ]
+  },
+  {
+   "funcao": "Comercial",
+   "tags": [
+    "Extrovertido",
+    "Confiante",
+    "Persuasivo",
+    "Competitivo",
+    "Influenciador",
+    "Comunicador",
+    "Vencedor",
+    "Energizador",
+    "Coragem"
+   ],
+   "porque": "A tua energia faz os outros acreditarem no que propões.",
+   "tags_originais": [
+    "Energia",
+    "Entusiasmo",
+    "Vendas",
+    "Persuasão",
+    "Comunicação",
+    "Confiança"
+   ]
+  },
+  {
+   "funcao": "Designer",
+   "tags": [
+    "Imaginativo",
+    "Sensível",
+    "Ilustrador",
+    "Criador",
+    "Compositor",
+    "Conceptualizador",
+    "Liberdade"
+   ],
+   "porque": "Vês como as coisas podiam ser mais bonitas e mais simples.",
+   "tags_originais": [
+    "Criatividade",
+    "Sensibilidade",
+    "Imaginação",
+    "Design",
+    "Coerência"
+   ]
+  },
+  {
+   "funcao": "Escritor/a de conteúdos",
+   "tags": [
+    "Imaginativo",
+    "Curioso",
+    "Escritor",
+    "Tradutor",
+    "Comunicador",
+    "Sinceridade",
+    "Liberdade"
+   ],
+   "porque": "Pões em palavras o que os outros sentem.",
+   "tags_originais": [
+    "Imaginação",
+    "Introspeção",
+    "Escrita",
+    "Narrativa",
+    "Integridade"
+   ]
+  },
+  {
+   "funcao": "Gestor/a de projeto",
+   "tags": [
+    "Objectivo",
+    "Prático",
+    "Adaptável",
+    "Organizador",
+    "Planeador",
+    "Concretizador",
+    "Líder",
+    "Responsabilidade",
+    "Colaboração"
+   ],
+   "porque": "Fazes as coisas acontecer a tempo e com toda a gente alinhada.",
+   "tags_originais": [
+    "Determinação",
+    "Foco",
+    "Planeamento",
+    "Organização",
+    "Gestão de tempo",
+    "Responsabilidade",
+    "Compromisso"
+   ]
+  },
+  {
+   "funcao": "Empreendedor/a",
+   "tags": [
+    "Confiante",
+    "Optimista",
+    "Apaixonado",
+    "Empreendedor",
+    "Inovador",
+    "Estratega",
+    "Explorador",
+    "Coragem",
+    "Liberdade"
+   ],
+   "porque": "Dás o primeiro passo onde outros esperam.",
+   "tags_originais": [
+    "Ousadia",
+    "Otimismo",
+    "Liderança",
+    "Estratégia",
+    "Improviso",
+    "Coragem"
+   ]
+  },
+  {
+   "funcao": "Professor/a ou formador/a",
+   "tags": [
+    "Divertido",
+    "Sábio",
+    "Empático",
+    "Conselheiro",
+    "Motivador",
+    "Animador",
+    "Aprendiz",
+    "Generosidade",
+    "Maturidade"
+   ],
+   "porque": "Gostas de ver os outros crescer e sabes explicar.",
+   "tags_originais": [
+    "Paciência",
+    "Alegria",
+    "Ensino",
+    "Mentoria",
+    "Facilitação",
+    "Generosidade"
+   ]
+  },
+  {
+   "funcao": "Técnico/a de intervenção social",
+   "tags": [
+    "Empático",
+    "Sensível",
+    "Conector",
+    "Motivador",
+    "Solidariedade",
+    "Altruísmo",
+    "Compaixão"
+   ],
+   "porque": "Não deixas ninguém para trás.",
+   "tags_originais": [
+    "Empatia",
+    "Sensibilidade",
+    "Cuidado",
+    "Escuta",
+    "Solidariedade",
+    "Lealdade"
+   ]
+  },
+  {
+   "funcao": "Gestor/a de comunidade",
+   "tags": [
+    "Extrovertido",
+    "Divertido",
+    "Empático",
+    "Animador",
+    "Conector",
+    "Energizador",
+    "Colaboração",
+    "Generosidade"
+   ],
+   "porque": "Juntas pessoas e manténs o grupo vivo."
+  },
+  {
+   "funcao": "Investigador/a",
+   "tags": [
+    "Curioso",
+    "Inteligente",
+    "Intuitivo",
+    "Investigador",
+    "Explorador",
+    "Analisador",
+    "Persistência",
+    "Humildade"
+   ],
+   "porque": "Fazes as perguntas que os outros não fazem e vais até ao fim."
+  }
+ ]
 }

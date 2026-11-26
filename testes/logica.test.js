@@ -70,3 +70,20 @@ describe('dados fictícios', () => {
     for (const p of PESSOAS_FICTICIAS) for (const mi of p.mights) for (const d of DIMS) expect(existe(d, mi[d])).toBe(true)
   })
 })
+
+describe('funções ideais (Parte A)', () => {
+  it('todas as palavras das funções existem na biblioteca', async () => {
+    const { FUNCOES } = await import('../logica/index.js')
+    const lib = new Set(DIMS.flatMap((d) => TAGS[d].map((x) => x.tag)))
+    for (const f of FUNCOES) for (const t of f.tags) expect(lib.has(t)).toBe(true)
+  })
+  it('devolve Agora, Próximo e Desafio diferentes, com tags em comum e pessoas como tu', async () => {
+    const { funcoesIdeais } = await import('../logica/index.js')
+    const eu = { pesos: pesos([m('Curioso', 'Analisador', 'Disciplina'), m('Lógico', 'Investigador', 'Sinceridade'), m('Curioso', 'Solucionador', 'Disciplina')]) }
+    const r = funcoesIdeais(eu)
+    expect(r.agora.funcao).toBe('Analista de dados')
+    expect(new Set([r.agora.funcao, r.proximo.funcao, r.desafio.funcao]).size).toBe(3)
+    expect(r.agora.tagsEmComum.length).toBeGreaterThan(0)
+    expect(r.comoTu).toHaveLength(3)
+  })
+})

@@ -1,4 +1,4 @@
-import { figura } from '../figura/index.js'
+import { figura, CABECA, CORPO, BRACO_E, BRACO_D } from '../figura/index.js'
 import { DIMS } from '../logica/index.js'
 
 // Silhueta MighT (cabeça · corpo · braços) que se preenche à medida que escolhes as palavras.
@@ -11,17 +11,10 @@ export default function Silhueta({ tags = {}, ativa, tamanho = 96 }) {
   const contorno = (d) => (ativa === d ? { stroke: '#ffffff', strokeWidth: 2.5 } : {})
   return (
     <svg viewBox="0 0 120 140" width={tamanho} height={(tamanho * 140) / 120} aria-hidden="true">
-      {/* braços: Carácter */}
-      <g fill={cor('caracter')} {...contorno('caracter')}>
-        <rect x="14" y="78" width="17" height="46" rx="8.5" />
-        <rect x="89" y="78" width="17" height="46" rx="8.5" />
-      </g>
-      {/* corpo: Poder (com o recorte entre as pernas) */}
-      <path fill={cor('poder')} {...contorno('poder')}
-        d="M36 74h48a8 8 0 0 1 8 8v40a12 12 0 0 1-12 12H68a4 4 0 0 1-4-4v-6a4 4 0 0 0-8 0v6a4 4 0 0 1-4 4H40a12 12 0 0 1-12-12V82a8 8 0 0 1 8-8z" />
-      {/* cabeça: Personalidade (nuvem com orelhas) */}
-      <path fill={cor('personalidade')} {...contorno('personalidade')}
-        d="M60 8c19 0 33 11 36 27 9 1 16 8 16 17s-7 16-16 17c-6 9-20 14-36 14s-30-5-36-14C15 68 8 61 8 52s7-16 16-17C27 19 41 8 60 8z" />
+      {/* braços: Carácter · corpo: Poder · cabeça: Personalidade (mesmas formas da figura) */}
+      <g fill={cor('caracter')} {...contorno('caracter')}><path d={BRACO_E} /><path d={BRACO_D} /></g>
+      <path d={CORPO} fill={cor('poder')} {...contorno('poder')} />
+      <path d={CABECA} fill={cor('personalidade')} {...contorno('personalidade')} />
     </svg>
   )
 }
