@@ -56,7 +56,7 @@ export const MightCard = forwardRef(function MightCard({ pessoa, pesos, circulos
   }, [w])
 
   const tags = (
-    <div style={{ borderTop: `1px solid ${LINHA}`, borderBottom: `1px solid ${LINHA}`, padding: ret ? '10px 0' : '8px 0', display: 'flex', justifyContent: ret ? 'space-around' : 'space-between', gap: 8 }}>
+    <div style={{ borderTop: `1px solid ${LINHA}`, borderBottom: `1px solid ${LINHA}`, padding: ret ? '10px 0' : '8px 0', display: 'flex', flexWrap: 'wrap', justifyContent: ret ? 'center' : 'flex-start', columnGap: 16, rowGap: 6 }}>
       {DIMS.map((d) => (
         <div key={d} title={PARTE[d]} style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: ret ? 14 : 13, whiteSpace: 'nowrap' }}>
           {ICONE[d]} {topo(pesos, d)}
