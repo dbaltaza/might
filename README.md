@@ -23,11 +23,24 @@ Três palavras de quem te conhece constroem a tua figura MighT e mostram-te fun�
 
 ## Estrutura
 ```
-frontend/   ecrãs e navegação           (Dinis)
-db/         esquema e dados             (Dinis)
-logica/     tags, dados fictícios, pesos, semelhança, funções   (Parte A)
+src/        ecrãs, navegação, db.js     (Dinis)   ← Vite + React
+db/         schema.sql do Supabase      (Dinis)
+logica/     tags.json, pessoas_ficticias.json, index.js   (Parte A)
 card/       MighT Card PNG              (Parte B)
 demo/       guião da demo e debrief     (Parte B)
 figura/     o boneco + tagline          (Parte C)
 ```
 Divisão e prazos em [TAREFAS.md](TAREFAS.md).
+
+## Correr
+```
+npm install
+cp .env.example .env.local   # opcional: sem Supabase corre em modo local
+npm run dev
+```
+Supabase: colar `db/schema.sql` no SQL Editor e pôr o URL e a anon key em `.env.local`.
+
+## Dados
+- `logica/tags.json`: biblioteca de tags do kit (19 Personalidade, 27 Poder, 15 Carácter, com tagline PT).
+- `logica/pessoas_ficticias.json`: 62 pessoas e 1046 MighTs do social graph fictício do kit, só primeiro nome. **As tags dos MighTs são sintéticas** (o kit não as tinha), com semente fixa.
+- Os ficheiros originais da Epic não estão no repo.

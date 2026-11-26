@@ -1,0 +1,252 @@
+{
+ "personalidade": [
+  {
+   "tag": "Adaptável",
+   "tagline": "Arranjo sempre uma maneira!"
+  },
+  {
+   "tag": "Esperto",
+   "tagline": "O meu cérebro é maior que o teu!"
+  },
+  {
+   "tag": "Competitivo",
+   "tagline": "Vai uma corrida?"
+  },
+  {
+   "tag": "Confiante",
+   "tagline": "Se SOU!"
+  },
+  {
+   "tag": "Curioso",
+   "tagline": "Deixa Ver!"
+  },
+  {
+   "tag": "Extrovertido",
+   "tagline": "Olá Malta!"
+  },
+  {
+   "tag": "Divertido",
+   "tagline": "Tem sempre Graça!"
+  },
+  {
+   "tag": "Imaginativo",
+   "tagline": "Tenho a cabeça cheia disto"
+  },
+  {
+   "tag": "Inteligente",
+   "tagline": "Pensa nisso…"
+  },
+  {
+   "tag": "Intuitivo",
+   "tagline": "Vejo com o meu olho interior"
+  },
+  {
+   "tag": "Lógico",
+   "tagline": "Esquerdo, Direito, Cima, Baixo...faz sentido!"
+  },
+  {
+   "tag": "Objectivo",
+   "tagline": "Focado e Centrado"
+  },
+  {
+   "tag": "Optimista",
+   "tagline": "Para a frente com um sorriso"
+  },
+  {
+   "tag": "Apaixonado",
+   "tagline": "Coração ardente"
+  },
+  {
+   "tag": "Empático",
+   "tagline": "Em casa com toda gente"
+  },
+  {
+   "tag": "Persuasivo",
+   "tagline": "Olha para mim. Agora faz à minha maneira"
+  },
+  {
+   "tag": "Prático",
+   "tagline": "A qual quer hora, em qualquer lugar!"
+  },
+  {
+   "tag": "Sensível",
+   "tagline": "Manusear com cuidado"
+  },
+  {
+   "tag": "Sábio",
+   "tagline": "Com a sabedoria da idade"
+  }
+ ],
+ "poder": [
+  {
+   "tag": "Vencedor",
+   "tagline": "O caminho foi duro, mas cá estou eu"
+  },
+  {
+   "tag": "Conselheiro",
+   "tagline": "Segue os meus conselhos e realizarás"
+  },
+  {
+   "tag": "Analisador",
+   "tagline": "Vejamos mais perto"
+  },
+  {
+   "tag": "Comunicador",
+   "tagline": "Falo de modo a ouvirem"
+  },
+  {
+   "tag": "Compositor",
+   "tagline": "Junto tudo com harmonia"
+  },
+  {
+   "tag": "Conceptualizador",
+   "tagline": "Esboçarei um plano"
+  },
+  {
+   "tag": "Conector",
+   "tagline": "Junto os pontos"
+  },
+  {
+   "tag": "Criador",
+   "tagline": "O Ser superior do que está por fazer"
+  },
+  {
+   "tag": "Concretizador",
+   "tagline": "Desenvolver, criar, ascender"
+  },
+  {
+   "tag": "Motivador",
+   "tagline": "Gooo!!!"
+  },
+  {
+   "tag": "Energizador",
+   "tagline": "Cheio de Poder Interior"
+  },
+  {
+   "tag": "Animador",
+   "tagline": "Divertido, Fixe e Social"
+  },
+  {
+   "tag": "Empreendedor",
+   "tagline": "“E” de Empreendedor"
+  },
+  {
+   "tag": "Explorador",
+   "tagline": "Encontra-me em qualquer lugar"
+  },
+  {
+   "tag": "Ilustrador",
+   "tagline": "Desenha, Cria, Pinta, “what else?!”"
+  },
+  {
+   "tag": "Influenciador",
+   "tagline": "Ouve o que te digo…"
+  },
+  {
+   "tag": "Inovador",
+   "tagline": "Acabo de pensar em algo Novo!"
+  },
+  {
+   "tag": "Investigador",
+   "tagline": "Deixa-me verificar isso!"
+  },
+  {
+   "tag": "Líder",
+   "tagline": "As pessoas seguem-me"
+  },
+  {
+   "tag": "Aprendiz",
+   "tagline": "De volta à Escola!"
+  },
+  {
+   "tag": "Moderador",
+   "tagline": "O quê…estará certo? O que tens a dizer?"
+  },
+  {
+   "tag": "Organizador",
+   "tagline": "Tudo tem um lugar e é assim que deve ser!"
+  },
+  {
+   "tag": "Planeador",
+   "tagline": "Isto vai para aqui, isso vai para aí!"
+  },
+  {
+   "tag": "Solucionador",
+   "tagline": "Tantas Perguntas…mas ainda tenho mais respostas"
+  },
+  {
+   "tag": "Estratega",
+   "tagline": "Desenhemos um plano"
+  },
+  {
+   "tag": "Tradutor",
+   "tagline": "De “isto” para “aquilo”, é easy!"
+  },
+  {
+   "tag": "Escritor",
+   "tagline": "A caneta é uma espada, E eu tenho muitas"
+  }
+ ],
+ "caracter": [
+  {
+   "tag": "Altruísmo",
+   "tagline": "Tu, Eu, Todos nós"
+  },
+  {
+   "tag": "Colaboração",
+   "tagline": "Bora Fazer Juntos?"
+  },
+  {
+   "tag": "Compaixão",
+   "tagline": "Ofereço-te o meu coração"
+  },
+  {
+   "tag": "Coragem",
+   "tagline": "Listas tribais, tal como um Apache"
+  },
+  {
+   "tag": "Disciplina",
+   "tagline": "Tal como no exército"
+  },
+  {
+   "tag": "Liberdade",
+   "tagline": "Tenho asas invisíveis"
+  },
+  {
+   "tag": "Generosidade",
+   "tagline": "Tenho sempre a mão aberta para dar"
+  },
+  {
+   "tag": "Humildade",
+   "tagline": "As minhas humildes vestes são a minha alma"
+  },
+  {
+   "tag": "Integridade",
+   "tagline": "Como um Cavaleiro"
+  },
+  {
+   "tag": "Maturidade",
+   "tagline": "Como as Árvores cresço devagar mas com firmeza"
+  },
+  {
+   "tag": "Persistência",
+   "tagline": "Hei-de conseguir..conseguirei"
+  },
+  {
+   "tag": "Responsabilidade",
+   "tagline": "Um fardo usado mas belo"
+  },
+  {
+   "tag": "Sinceridade",
+   "tagline": "A Verdade…acima de tudo"
+  },
+  {
+   "tag": "Solidariedade",
+   "tagline": "Abraçando e alcançando os outros"
+  },
+  {
+   "tag": "Tolerância",
+   "tagline": "Um entre muitos"
+  }
+ ]
+}
