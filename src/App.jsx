@@ -12,6 +12,7 @@ import Perfil from './ecras/Perfil.jsx'
 import Card from './ecras/Card.jsx'
 import Descobrir from './ecras/Descobrir.jsx'
 import Funcoes from './ecras/Funcoes.jsx'
+import Duelo from './ecras/Duelo.jsx'
 
 // Figuras de exemplo na entrada: mostram o que três palavras fazem.
 const EXEMPLOS = [['Curioso', 'Explorador', 'Liberdade'], ['Empático', 'Conector', 'Generosidade'], ['Lógico', 'Estratega', 'Integridade']]
@@ -71,6 +72,7 @@ export default function App() {
         <Route path="/card" element={<Card />} />
         <Route path="/descobrir" element={<Descobrir />} />
         <Route path="/funcoes" element={<Funcoes />} />
+        <Route path="/duelo/:id" element={<Duelo />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="*" element={<Entrada />} />
       </Routes>

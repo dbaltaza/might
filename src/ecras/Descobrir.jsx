@@ -31,6 +31,7 @@ function Conteudo({ eu }) {
               {diferenca && <div className="sub">Maior diferença: {diferenca.tag} ({DIM_NOME[diferenca.dim]})</div>}
             </div>
             <div className="pct">{pct}%</div>
+            {comuns.length > 0 && <Link className="link-simular" to={`/duelo/${pessoa.id}`}>Desafiar</Link>}
           </div>
         ))}
       </div>

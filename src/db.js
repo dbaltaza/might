@@ -14,6 +14,16 @@ const gravar = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)) } ca
 export const meuId = () => ler('might.eu', null)
 export const definirEu = (id) => gravar('might.eu', id)
 
+// Pontos dos duelos, por nome, neste dispositivo (o duelo joga-se num só ecrã).
+// ponytail: localStorage; coluna `pontos` em pessoas se tiverem de aparecer noutros telemóveis.
+export const lerPontos = () => ler('might.pontos', {})
+export function somarPontos(ganhos) {
+  const p = lerPontos()
+  for (const [nome, n] of Object.entries(ganhos)) p[nome] = (p[nome] || 0) + n
+  gravar('might.pontos', p)
+  return p
+}
+
 export async function criarPessoa(nome, tagline = '', artista = null) {
   if (sb) {
     const { data, error } = await sb.from('pessoas').insert({ nome, tagline, artista }).select().single()
