@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 import { meuId, lerPessoa, listarMights, ouvirMights, limparTudo } from './db.js'
 import { desbloqueado, pesos, MIN_DESBLOQUEIO } from '../logica/index.js'
 
@@ -12,6 +12,7 @@ export function useEu() {
   const [pessoa, setPessoa] = useState(guardado?.pessoa ?? null)
   const [mights, setMights] = useState(guardado?.mights ?? [])
   const [carregado, setCarregado] = useState(!id || !!guardado)
+  const ultimo = useRef(guardado ? JSON.stringify(guardado) : null) // por instância: a cache é partilhada com o App
 
   const recarregar = useCallback(async () => {
     if (!id) return
@@ -28,7 +29,11 @@ export function useEu() {
       setCarregado(true)
       return
     }
-    cache.set(id, { pessoa: p, mights: ms })
+    const novo = { pessoa: p, mights: ms }
+    const json = JSON.stringify(novo)
+    if (json === ultimo.current) return setCarregado(true) // polling sem novidades
+    ultimo.current = json
+    cache.set(id, novo)
     setPessoa(p)
     setMights(ms)
     setCarregado(true)

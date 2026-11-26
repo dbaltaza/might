@@ -4,7 +4,7 @@ import { useEu, topTag } from '../estado.js'
 import { Barreira, Topo } from '../ui.jsx'
 import { figuraDe } from '../figuraDe.js'
 import { MightCard, descarregarPNG } from '../../card/MightCard.jsx'
-import { sb } from '../db.js'
+import { publicar as gravarPublico } from '../db.js'
 
 // Passo 4: MighT Card (o componente é da Parte B). Tu, pelos olhos dos outros.
 export default function Card() {
@@ -21,7 +21,7 @@ function Conteudo({ eu }) {
 
   async function responderPublicar(sim) {
     setPublicar(sim)
-    if (sb) await sb.from('pessoas').update({ publico: sim }).eq('id', eu.id)
+    await gravarPublico(eu.id, sim)
   }
 
   return (

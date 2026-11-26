@@ -25,19 +25,20 @@ export function somarPontos(ganhos) {
 }
 
 export async function criarPessoa(nome, tagline = '', artista = null) {
-  if (sb) {
-    const { data, error } = await sb.from('pessoas').insert({ nome, tagline, artista }).select().single()
-    if (error) throw error
-    return data
-  }
   const p = { id: uid(), nome, tagline, artista, publico: false }
+  if (sb) {
+    // Sem .select(): a anon key não lê a tabela (ver db/schema.sql), por isso o id nasce aqui.
+    const { error } = await sb.from('pessoas').insert(p)
+    if (error) throw error
+    return p
+  }
   gravar('might.pessoas', { ...ler('might.pessoas', {}), [p.id]: p })
   return p
 }
 
 export async function escolherArtista(id, artista) {
   if (sb) {
-    const { error } = await sb.from('pessoas').update({ artista }).eq('id', id)
+    const { error } = await sb.rpc('editar_pessoa', { p: id, novo_artista: artista })
     if (error) throw error
     return
   }
@@ -47,23 +48,22 @@ export async function escolherArtista(id, artista) {
 
 export async function lerPessoa(id) {
   if (sb) {
-    const { data, error } = await sb.from('pessoas').select().eq('id', id).maybeSingle()
+    const { data, error } = await sb.rpc('ler_pessoa', { p: id })
     if (error?.code === '22P02') return null // id que não é uuid (ex.: vindo do modo local)
     if (error) throw error
-    return data
+    return data?.[0] ?? null
   }
   return ler('might.pessoas', {})[id] ?? null
 }
 
 // might = { de_id, de_nome, para_id, circulo, personalidade, poder, caracter, estado? }
 export async function enviarMight(might) {
-  const m = { estado: 'pendente', ...might }
+  const novo = { id: uid(), criado_em: new Date().toISOString(), estado: 'pendente', ...might }
   if (sb) {
-    const { data, error } = await sb.from('mights').insert(m).select().single()
+    const { error } = await sb.from('mights').insert(novo)
     if (error) throw error
-    return data
+    return novo
   }
-  const novo = { id: uid(), criado_em: new Date().toISOString(), ...m }
   gravar('might.mights', [...ler('might.mights', []), novo])
   avisar()
   return novo
@@ -75,7 +75,7 @@ export const guardarSelf = (eu, tags) =>
 
 export async function listarMights(paraId) {
   if (sb) {
-    const { data } = await sb.from('mights').select().eq('para_id', paraId).order('criado_em')
+    const { data } = await sb.rpc('mights_para', { p: paraId })
     return data ?? []
   }
   return ler('might.mights', []).filter((m) => m.para_id === paraId)
@@ -83,11 +83,15 @@ export async function listarMights(paraId) {
 
 export async function responder(id, estado) {
   if (sb) {
-    await sb.from('mights').update({ estado }).eq('id', id)
+    await sb.rpc('responder_might', { m: id, eu: meuId(), novo: estado })
     return
   }
   gravar('might.mights', ler('might.mights', []).map((m) => (m.id === id ? { ...m, estado } : m)))
   avisar()
+}
+
+export async function publicar(id, sim) {
+  if (sb) await sb.rpc('editar_pessoa', { p: id, novo_publico: sim })
 }
 
 // Chama cb() sempre que mudar um MighT desta pessoa. Devolve a função para parar.
@@ -95,11 +99,9 @@ const ouvintes = new Set()
 function avisar() { ouvintes.forEach((f) => f()) }
 export function ouvirMights(paraId, cb) {
   if (sb) {
-    const canal = sb
-      .channel('mights-' + paraId)
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'mights', filter: `para_id=eq.${paraId}` }, cb)
-      .subscribe()
-    return () => sb.removeChannel(canal)
+    // ponytail: polling de 3 s; o realtime precisava de SELECT aberto na tabela.
+    const t = setInterval(cb, 3000)
+    return () => clearInterval(t)
   }
   ouvintes.add(cb)
   const onStorage = (e) => e.key === 'might.mights' && cb()
