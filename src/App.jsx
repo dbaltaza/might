@@ -59,7 +59,8 @@ const Cadeado = () => (
   </svg>
 )
 
-// Antes de 3 MighTs aceites, só a Caixa abre; os outros separadores mostram um cadeado em vez de um beco.
+// Antes de 3 MighTs aceites, só a Caixa e os Duelos abrem; os outros separadores mostram um cadeado em vez de um beco.
+const SEMPRE = ['/caixa', '/duelos']
 function Nav({ visivel }) {
   if (!visivel) return null
   return <NavAbas />
@@ -71,7 +72,7 @@ function NavAbas() {
     <header className="barra">
       <Link to="/" className="marca barra-marca" aria-label="MighT, início"><span className="marca-logo" /></Link>
       <nav className="nav" aria-label="Secções">
-        {ABAS.map(([to, t]) => (aberto || to === '/caixa'
+        {ABAS.map(([to, t]) => (aberto || SEMPRE.includes(to)
           ? <NavLink key={to} to={to} className={({ isActive }) => (isActive ? 'ativo' : '')}>{t}</NavLink>
           : <span key={to} className="bloq" aria-disabled="true" title={`${t} abre com 3 MighTs`}><Cadeado />{t}</span>))}
       </nav>
