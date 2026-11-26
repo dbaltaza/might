@@ -14,20 +14,32 @@ const gravar = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)) } ca
 export const meuId = () => ler('might.eu', null)
 export const definirEu = (id) => gravar('might.eu', id)
 
-export async function criarPessoa(nome, tagline = '') {
+export async function criarPessoa(nome, tagline = '', artista = null) {
   if (sb) {
-    const { data, error } = await sb.from('pessoas').insert({ nome, tagline }).select().single()
+    const { data, error } = await sb.from('pessoas').insert({ nome, tagline, artista }).select().single()
     if (error) throw error
     return data
   }
-  const p = { id: uid(), nome, tagline, publico: false }
+  const p = { id: uid(), nome, tagline, artista, publico: false }
   gravar('might.pessoas', { ...ler('might.pessoas', {}), [p.id]: p })
   return p
 }
 
+export async function escolherArtista(id, artista) {
+  if (sb) {
+    const { error } = await sb.from('pessoas').update({ artista }).eq('id', id)
+    if (error) throw error
+    return
+  }
+  const ps = ler('might.pessoas', {})
+  if (ps[id]) gravar('might.pessoas', { ...ps, [id]: { ...ps[id], artista } })
+}
+
 export async function lerPessoa(id) {
   if (sb) {
-    const { data } = await sb.from('pessoas').select().eq('id', id).single()
+    const { data, error } = await sb.from('pessoas').select().eq('id', id).maybeSingle()
+    if (error?.code === '22P02') return null // id que não é uuid (ex.: vindo do modo local)
+    if (error) throw error
     return data
   }
   return ler('might.pessoas', {})[id] ?? null

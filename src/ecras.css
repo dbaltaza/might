@@ -1,0 +1,23 @@
+/* Ecrãs no ecrã largo. As colunas (.duas-colunas, .col-hero, .col-conteudo) vêm do index.css;
+   aqui só o que é de cada ecrã. Abaixo de 960px nada muda. */
+.previa { display: none; }
+.previa-n { margin: 12px 0 0; font-size: 14px; font-weight: 550; color: rgba(28, 30, 40, 0.7); text-align: center; }
+
+@media (min-width: 960px) {
+  /* Criar / Enviar / Publico: figura grande à esquerda, a silhueta pequena sai da pergunta */
+  .ecra-palavras .previa { display: grid; justify-items: center; padding-top: 24px; }
+  .ecra-palavras .previa .figura img { width: 260px; }
+  .ecra-palavras .previa .tagline { color: var(--ink); max-width: 30ch; }
+  .ecra-palavras .pergunta { grid-template-columns: 1fr; }
+  .ecra-palavras .pergunta svg { display: none; }
+  .ecra-palavras .pergunta p { max-width: 60ch; }
+  .ecra-palavras .mosaicos { grid-template-columns: repeat(3, 1fr); }
+  .ecra-palavras .fixo { margin: 14px 0 0; padding: 4px 0 2px; }
+
+  /* Reveal: uma coluna centrada */
+  .ecra-centro { max-width: 520px; margin-inline: auto; }
+  .ecra-centro h1 { text-align: center; }
+
+  .col-conteudo .lead { max-width: 60ch; }
+}
+

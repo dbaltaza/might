@@ -12,14 +12,15 @@ might  = { id, de /* pessoa.id */, para /* pessoa.id */, circulo,
 // Self MighT = might com de === para
 ```
 
-## Dinis: front end + base de dados (`frontend/`, `db/`)
+## Dinis: front end + base de dados (`src/`, `db/`) · ecrãs 1–6 feitos; falta ligar o Supabase
+- Testes: `npm test` (26). Reset dos dados deste browser: abrir `#/reset`.
 - Ecrãs 1–6 e a navegação entre eles, mobile first.
 - Esquema e dados com o contrato acima; aceitar e recusar MighTs.
 - **Pronto (min 40):** passos 1–4 têm um ecrã cada a funcionar.
 - **Pronto (min 60):** caminho 1 → 6 sem becos sem saída.
 
 ## Parte A: lógica e conteúdo (`logica/`)
-- `tags.json`: biblioteca de tags com tagline PT. Personalidade (19), Poder (25), Carácter (17).
+- `tags.json`: biblioteca de tags com tagline PT. Personalidade (19), Poder (27), Carácter (15) · já em `logica/tags.json`.
 - `dados.json`: ~30 pessoas e ~90 MighTs fictícios, só primeiros nomes, vários círculos.
 - Funções (JS sem dependências):
   - `pesos(mights)` → por dimensão, contagem ÷ total.
@@ -39,7 +40,8 @@ might  = { id, de /* pessoa.id */, para /* pessoa.id */, circulo,
 - **Pronto (min 40):** Card com figura provisória (placeholder) descarregável.
 - **Pronto (min 60):** Card com a figura final + guião ensaiado uma vez.
 
-## Parte C: o boneco (`figura/`)
+## Parte C: o boneco (`figura/`) · FEITO (Dinis + Claude)
+- `figura(personalidade, poder, caracter)` já devolve a figura final (SVG determinístico, um só estilo, contorno de autocolante) + tagline. Testes em `testes/figura.test.js`.
 - Figura MighT a partir das 3 tags: cabeça = Personalidade, braço = Poder, mão = Carácter.
 - Um só estilo de artista por figura (2–3 imagens com IA chegam; não é arte de produção).
 - Tagline: a da biblioteca de tags ou gerada por IA.

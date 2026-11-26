@@ -1,3 +1,6 @@
+/* Mona Sans (kit de marca MighT, licença OFL em public/assets/fonts/OFL.txt): fonte variável local, funciona sem rede */
+@font-face { font-family: 'Mona Sans'; src: url('/assets/fonts/MonaSans-VariableFont_wdth-wght.ttf') format('truetype'); font-weight: 200 900; font-stretch: 75% 125%; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Mona Sans'; src: url('/assets/fonts/MonaSans-Italic-VariableFont_wdth-wght.ttf') format('truetype'); font-weight: 200 900; font-stretch: 75% 125%; font-style: italic; font-display: swap; }
 /* MighT · sistema visual a partir do guia de cores e dos wireframes 2026 da marca.
    Azul = como te vês (Self). Roxo = como os outros te veem (All MighT).
    Verde/azul/laranja só com significado: Confirmado, Superpoderes, Talentos escondidos. */
@@ -24,7 +27,6 @@
 html, body { margin: 0; background: #023460; }
 body:has(.app.roxo) { background: #3e0c42; }
 button { font: inherit; color: inherit; }
-:focus-visible { outline: 2px solid var(--branco); outline-offset: 2px; }
 
 /* Ecrã */
 .app { max-width: 440px; margin: 0 auto; min-height: 100dvh; padding: 22px 20px 112px; background: var(--grad-azul); background-size: 100% max(100dvh, 100%); position: relative; }
@@ -175,3 +177,78 @@ h1 { font-size: 30px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 7
 /* Revelação da figura: o único momento orquestrado fora da órbita */
 .revela img { animation: revelar 0.7s cubic-bezier(0.2, 0.9, 0.25, 1.15) both; }
 @keyframes revelar { from { opacity: 0; transform: translateY(16px) scale(0.85); } to { opacity: 1; transform: none; } }
+
+/* Acessibilidade transversal: anel de foco em dois tons (lê-se em fundo claro e escuro); vidro opaco quando pedido. */
+:focus-visible { outline: 2px solid var(--branco); outline-offset: 2px; box-shadow: 0 0 0 4px var(--ink); }
+@media (prefers-reduced-transparency: reduce) { .nav { background: var(--ink); backdrop-filter: none; -webkit-backdrop-filter: none; } }
+
+/* Barra: em telemóvel não existe como caixa (só a .nav flutuante em baixo). */
+.barra { display: contents; }
+.barra-marca { display: none; }
+
+/* ===== Desktop (≥ 960px) =====
+   Layout para os ecrãs (abaixo de 960px tudo isto colapsa para uma coluna, igual ao telemóvel):
+   <div className="duas-colunas">           grelha 5fr 7fr, gap 56px. Variante: "duas-colunas iguais" (1fr 1fr).
+     <div className="col-hero">…</div>       figura/órbita/título; sticky no desktop.
+     <div className="col-conteudo">…</div>   painéis .vidro, listas, ações.
+   </div>
+   O gradiente continua vertical e ocupa o ecrã inteiro (claro em cima, escuro em baixo, como no telemóvel):
+   texto escuro no topo das colunas, painéis .vidro mais abaixo.
+   Com .duas-colunas o conteúdo vai até 1120px; sem elas, uma coluna de 680px.
+   A navegação passa para uma barra no topo; a .marca do <Topo> esconde-se quando a barra existe. */
+@media (min-width: 960px) {
+  .app { max-width: none; padding: 40px max(40px, calc((100% - 680px) / 2)) 64px; }
+  .app:not(.sem-nav) { padding-top: 112px; }
+  .app:has(.duas-colunas) { padding-inline: max(40px, calc((100% - 1120px) / 2)); }
+
+  .barra { display: flex; align-items: center; justify-content: space-between; gap: 24px; position: fixed; top: 16px; left: 50%; transform: translateX(-50%); width: min(1120px, calc(100% - 80px)); z-index: 5; padding: 6px 6px 6px 20px; border-radius: 16px; background: rgba(28, 30, 40, 0.86); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .barra-marca { display: inline; color: var(--branco); font-size: 20px; }
+  .barra-marca i { color: #f2c4f5; }
+  .barra .nav { position: static; transform: none; width: auto; display: flex; gap: 2px; background: none; padding: 0; border-radius: 0; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .barra .nav a { font-size: 14px; padding: 10px 16px; }
+  .barra .nav a:hover:not(.ativo) { color: var(--branco); }
+  .app:not(.sem-nav) .topo .marca { display: none; }
+
+  h1 { font-size: 40px; margin: 14px 0 14px; }
+  .lead { font-size: 17px; max-width: 46ch; }
+
+  .duas-colunas { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: start; }
+  .duas-colunas.iguais { grid-template-columns: 1fr 1fr; }
+  .col-hero { position: sticky; top: 112px; }
+  .app.sem-nav .col-hero { top: 40px; }
+  .col-conteudo { min-width: 0; max-width: 75ch; }
+  .col-hero .figura img { width: min(100%, 300px); }
+  .col-hero .orbita { max-width: 460px; margin-inline: auto; }
+  .col-conteudo > .vidro:first-child, .col-hero > :first-child { margin-top: 0; }
+
+  .fixo, .app.sem-nav .fixo { bottom: 24px; margin: 20px 0 0; padding: 0; }
+  .modo { bottom: 16px; }
+}
+@media (min-width: 960px) and (prefers-reduced-transparency: reduce) { .barra { background: var(--ink); backdrop-filter: none; -webkit-backdrop-filter: none; } }
+
+/* Obras de artista (têm fundo): moldura de colecionável. Créditos do artista por baixo. */
+.moldura { width: min(62vw, 240px); aspect-ratio: 1; border-radius: 20px; overflow: hidden; background: var(--ink); box-shadow: 0 0 0 4px var(--branco), 0 18px 32px rgba(2, 52, 96, 0.35); }
+.moldura img, .figura .moldura img { width: 100%; height: 100%; object-fit: cover; filter: none; display: block; }
+.credito { margin: 10px 0 0; font-size: 12.5px; font-weight: 500; color: rgba(28, 30, 40, 0.66); text-align: center; }
+.roxo .credito, .vidro .credito { color: rgba(255, 255, 255, 0.75); }
+.orbita .centro.com-moldura .moldura { width: 100%; border-radius: 18px; }
+.col-hero .moldura { width: min(100%, 300px); }
+
+/* «Escolhe o teu artista» */
+.artistas { margin: 16px 0 4px; }
+.artistas-fila { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x proximity; padding: 4px 2px 10px; margin: 0 -20px; padding-inline: 20px; scrollbar-width: none; }
+.artistas-fila::-webkit-scrollbar { display: none; }
+.artista { flex: none; width: 86px; border: 0; background: none; padding: 0; cursor: pointer; scroll-snap-align: start; display: grid; gap: 6px; justify-items: center; }
+.artista-img { width: 86px; height: 86px; border-radius: 12px; overflow: hidden; display: grid; place-items: center; background: rgba(255, 255, 255, 0.45); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
+.artista.obra .artista-img { background: var(--ink); }
+.artista-img img { width: 100%; height: 100%; object-fit: contain; }
+.artista.obra .artista-img img { object-fit: cover; }
+.artista.palavras .artista-img img, .artista.avatar .artista-img img { width: 82%; height: 82%; }
+.artista.on .artista-img { box-shadow: 0 0 0 3px var(--azul-escuro), 0 0 0 5px var(--branco); }
+.artista-nome { font-size: 12px; font-weight: 500; line-height: 1.2; text-align: center; color: var(--ink); max-width: 86px; }
+.artista.on .artista-nome { font-weight: 700; }
+@media (hover: hover) { .artista:hover:not(.on) .artista-img { box-shadow: inset 0 0 0 2px var(--branco); } }
+
+/* Logótipo da marca (kit 10. Visual identity), pintado com a cor do tema via máscara */
+.marca-logo { display: block; width: 76px; aspect-ratio: 357 / 107; background: currentColor; -webkit-mask: url('/assets/logo-branco.svg') no-repeat center / contain; mask: url('/assets/logo-branco.svg') no-repeat center / contain; }
+.barra-marca .marca-logo { width: 68px; }
