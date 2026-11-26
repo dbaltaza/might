@@ -26,7 +26,8 @@ Três palavras de quem te conhece constroem a tua figura MighT e mostram-te fun�
 frontend/   ecrãs e navegação           (Dinis)
 db/         esquema e dados             (Dinis)
 logica/     tags, dados fictícios, pesos, semelhança, funções   (Parte A)
-card/       figura e MighT Card PNG     (Parte B)
+card/       MighT Card PNG              (Parte B)
 demo/       guião da demo e debrief     (Parte B)
+figura/     o boneco + tagline          (Parte C)
 ```
 Divisão e prazos em [TAREFAS.md](TAREFAS.md).

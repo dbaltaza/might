@@ -31,11 +31,18 @@ might  = { id, de /* pessoa.id */, para /* pessoa.id */, circulo,
 - **Pronto (min 40):** `tags.json`, `dados.json`, `pesos` e `desbloqueado`.
 - **Pronto (min 60):** semelhança e funções ligadas aos ecrãs 5 e 6.
 
-## Parte B: figura, MighT Card e demo (`card/`, `demo/`)
-- Figura a partir das 3 tags, num só estilo de artista, + tagline (da biblioteca ou gerada por IA).
-- MighT Card PNG: figura, tagline, tags principais, círculos. Retrato e formato LinkedIn. Botão de download.
+## Parte B: MighT Card e demo (`card/`, `demo/`)
+- MighT Card PNG: figura (vem da Parte C), tagline, tags principais, círculos. Retrato e formato LinkedIn. Botão de download.
 - Testar como utilizador novo: cronometrar o tempo até ao 1.º MighT (meta < 2 min).
 - `demo/guiao.md`: os 6 passos da demo (criar, receber 3 da sala, comparar All vs Self, descarregar o Card, pessoa mais parecida, ler a linha «porque encaixa em ti»).
 - `demo/debrief.md`: 2 min sobre como nos organizámos: o que esperávamos, o que aconteceu, o que faríamos diferente (sobre o quê, nunca sobre quem).
-- **Pronto (min 40):** figura + tagline no ecrã 1.
-- **Pronto (min 60):** Card descarregável + guião ensaiado uma vez.
+- **Pronto (min 40):** Card com figura provisória (placeholder) descarregável.
+- **Pronto (min 60):** Card com a figura final + guião ensaiado uma vez.
+
+## Parte C: o boneco (`figura/`)
+- Figura MighT a partir das 3 tags: cabeça = Personalidade, braço = Poder, mão = Carácter.
+- Um só estilo de artista por figura (2–3 imagens com IA chegam; não é arte de produção).
+- Tagline: a da biblioteca de tags ou gerada por IA.
+- Entrega uma função simples que o front end e o Card usam: `figura(personalidade, poder, caracter)` → imagem (URL ou SVG) + tagline.
+- **Pronto (min 40):** figura + tagline no ecrã 1 (pode ser placeholder com cores por tag).
+- **Pronto (min 60):** figura final no ecrã 1, no perfil e no Card.
