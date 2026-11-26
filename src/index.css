@@ -158,7 +158,7 @@ h1 { font-size: 30px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 7
 .link-simular { display: block; margin: 18px auto 0; background: none; border: 0; color: rgba(255, 255, 255, 0.6); font-size: 12.5px; text-decoration: underline; cursor: pointer; }
 
 /* Navegação */
-.nav { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); width: min(420px, calc(100% - 24px)); display: grid; grid-template-columns: repeat(5, 1fr); background: rgba(28, 30, 40, 0.86); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 16px; padding: 6px; z-index: 5; }
+.nav { position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%); width: min(420px, calc(100% - 24px)); display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; background: rgba(28, 30, 40, 0.86); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 16px; padding: 6px; z-index: 5; }
 .nav a { color: rgba(255, 255, 255, 0.62); text-decoration: none; font-size: 12.5px; text-align: center; padding: 10px 2px; border-radius: 11px; font-weight: 550; }
 .nav a.ativo { color: var(--branco); background: rgba(255, 255, 255, 0.12); }
 .nav a .bloq { opacity: 0.5; }

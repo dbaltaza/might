@@ -79,7 +79,7 @@ function Conteudo({ eu }) {
           <button className="btn" onClick={() => { setFalta(null); setVencedor(null); setN(n + 1); setJogar(!!d.jogo) }}>Revanche</button>
         </div>
       )}
-      <Link className="btn fantasma" to="/descobrir">Voltar às pessoas</Link>
+      <Link className="btn fantasma" to="/duelos">Voltar aos duelos</Link>
     </>
   )
 }

@@ -13,6 +13,7 @@ import Card from './ecras/Card.jsx'
 import Descobrir from './ecras/Descobrir.jsx'
 import Funcoes from './ecras/Funcoes.jsx'
 import Duelo from './ecras/Duelo.jsx'
+import Duelos from './ecras/Duelos.jsx'
 
 // Figuras de exemplo na entrada: mostram o que três palavras fazem.
 const EXEMPLOS = [['Curioso', 'Explorador', 'Liberdade'], ['Empático', 'Conector', 'Generosidade'], ['Lógico', 'Estratega', 'Integridade']]
@@ -40,8 +41,8 @@ function Reset() {
 }
 
 // Roxo = o que os outros veem em ti. Azul = como te vês e o que dás.
-const ROXO = ['/caixa', '/perfil', '/descobrir', '/funcoes']
-const ABAS = [['/caixa', 'Caixa'], ['/perfil', 'All MighT'], ['/card', 'Card'], ['/descobrir', 'Pessoas'], ['/funcoes', 'Funções']]
+const ROXO = ['/caixa', '/perfil', '/descobrir', '/funcoes', '/duelos']
+const ABAS = [['/caixa', 'Caixa'], ['/perfil', 'All MighT'], ['/card', 'Card'], ['/descobrir', 'Pessoas'], ['/funcoes', 'Funções'], ['/duelos', 'Duelos']]
 
 function Nav({ visivel }) {
   if (!visivel) return null
@@ -73,6 +74,7 @@ export default function App() {
         <Route path="/descobrir" element={<Descobrir />} />
         <Route path="/funcoes" element={<Funcoes />} />
         <Route path="/duelo/:id" element={<Duelo />} />
+        <Route path="/duelos" element={<Duelos />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="*" element={<Entrada />} />
       </Routes>
