@@ -10,6 +10,7 @@ import { PESSOAS_FICTICIAS, CIRCULOS, DIMS } from '../../logica/index.js'
 export default function Caixa() {
   const eu = useEu()
   if (!eu.id) return <Barreira eu={eu} />
+  if (!eu.carregado) return <Topo passo="3 de 6 · Pelos olhos dos outros" />
   const pendentes = eu.recebidos.filter((m) => m.estado === 'pendente')
   const s = eu.self || {}
   // Antes de desbloquear: a tua figura. Depois: a figura como os outros te veem.

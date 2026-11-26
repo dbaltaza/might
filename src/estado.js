@@ -3,12 +3,15 @@ import { meuId, lerPessoa, listarMights, ouvirMights, limparTudo } from './db.js
 import { desbloqueado, pesos, MIN_DESBLOQUEIO } from '../logica/index.js'
 
 // Estado do utilizador deste telemóvel: pessoa, Self MighT, MighTs recebidos (tempo real).
+// Cache em memória: ao mudar de ecrã mostra logo o último estado conhecido e atualiza por trás (sem flash).
+const cache = new Map()
 export function useEu() {
   const [perdido, setPerdido] = useState(false)
   const id = perdido ? null : meuId()
-  const [pessoa, setPessoa] = useState(null)
-  const [mights, setMights] = useState([])
-  const [carregado, setCarregado] = useState(!id)
+  const guardado = id ? cache.get(id) : null
+  const [pessoa, setPessoa] = useState(guardado?.pessoa ?? null)
+  const [mights, setMights] = useState(guardado?.mights ?? [])
+  const [carregado, setCarregado] = useState(!id || !!guardado)
 
   const recarregar = useCallback(async () => {
     if (!id) return
@@ -25,6 +28,7 @@ export function useEu() {
       setCarregado(true)
       return
     }
+    cache.set(id, { pessoa: p, mights: ms })
     setPessoa(p)
     setMights(ms)
     setCarregado(true)

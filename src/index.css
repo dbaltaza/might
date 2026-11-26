@@ -240,10 +240,8 @@ h1 { font-size: 30px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 7
 .artistas-fila::-webkit-scrollbar { display: none; }
 .artista { flex: none; width: 86px; border: 0; background: none; padding: 0; cursor: pointer; scroll-snap-align: start; display: grid; gap: 6px; justify-items: center; }
 .artista-img { width: 86px; height: 86px; border-radius: 12px; overflow: hidden; display: grid; place-items: center; background: rgba(255, 255, 255, 0.45); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
-.artista.obra .artista-img { background: var(--ink); }
 .artista-img img { width: 100%; height: 100%; object-fit: contain; }
-.artista.obra .artista-img img { object-fit: cover; }
-.artista.palavras .artista-img img, .artista.avatar .artista-img img { width: 82%; height: 82%; }
+.artista-img img { width: 90%; height: 90%; filter: drop-shadow(0 4px 6px rgba(2, 52, 96, 0.25)); }
 .artista.on .artista-img { box-shadow: 0 0 0 3px var(--azul-escuro), 0 0 0 5px var(--branco); }
 .artista-nome { font-size: 12px; font-weight: 500; line-height: 1.2; text-align: center; color: var(--ink); max-width: 86px; }
 .artista.on .artista-nome { font-weight: 700; }
