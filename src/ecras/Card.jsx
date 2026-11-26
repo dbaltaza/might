@@ -2,7 +2,7 @@ import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useEu, topTag } from '../estado.js'
 import { Barreira, Topo } from '../ui.jsx'
-import { figura } from '../../figura/index.js'
+import { figuraDe } from '../figuraDe.js'
 import { MightCard, descarregarPNG } from '../../card/MightCard.jsx'
 import { sb } from '../db.js'
 
@@ -16,7 +16,7 @@ function Conteudo({ eu }) {
   const ref = useRef(null)
   const [formato, setFormato] = useState('retrato')
   const [publicar, setPublicar] = useState(null)
-  const fig = figura(topTag(eu.pesos.personalidade), topTag(eu.pesos.poder), topTag(eu.pesos.caracter))
+  const fig = figuraDe(eu.pessoa, { personalidade: topTag(eu.pesos.personalidade), poder: topTag(eu.pesos.poder), caracter: topTag(eu.pesos.caracter) })
   const circulos = [...new Set(eu.aceites.map((m) => m.circulo))]
 
   async function responderPublicar(sim) {

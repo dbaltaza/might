@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { responder, enviarMight } from '../db.js'
 import { useEu, topTag } from '../estado.js'
-import { figura } from '../../figura/index.js'
+import { figuraDe } from '../figuraDe.js'
 import Orbita from '../Orbita.jsx'
 import { Barreira, Topo, inicial } from '../ui.jsx'
 import { PESSOAS_FICTICIAS, CIRCULOS, DIMS } from '../../logica/index.js'
@@ -14,8 +14,8 @@ export default function Caixa() {
   const s = eu.self || {}
   // Antes de desbloquear: a tua figura. Depois: a figura como os outros te veem.
   const fig = eu.desbloqueado
-    ? figura(topTag(eu.pesos.personalidade), topTag(eu.pesos.poder), topTag(eu.pesos.caracter))
-    : figura(s.personalidade, s.poder, s.caracter)
+    ? figuraDe(eu.pessoa, { personalidade: topTag(eu.pesos.personalidade), poder: topTag(eu.pesos.poder), caracter: topTag(eu.pesos.caracter) })
+    : figuraDe(eu.pessoa, s)
 
   // Plano B para o palco: 3 MighTs com palavras tiradas do social graph fictício.
   async function simular() {
@@ -36,7 +36,7 @@ export default function Caixa() {
       <Topo passo="3 de 6 · Pelos olhos dos outros" />
       <div className="duas-colunas">
       <div className="col-hero">
-      <Orbita figura={fig.src} pessoas={eu.aceites.map((m) => ({ id: m.id, nome: m.de_nome || 'Alguém' }))} />
+      <Orbita figura={fig.src} moldura={fig.moldura} pessoas={eu.aceites.map((m) => ({ id: m.id, nome: m.de_nome || 'Alguém' }))} />
       <div className="contador">
         {eu.desbloqueado
           ? <><b>{eu.aceites.length}</b> pessoas reconhecem-te. O teu perfil está aberto.</>

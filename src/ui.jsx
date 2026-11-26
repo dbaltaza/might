@@ -74,7 +74,7 @@ export function Progresso({ n, total = 3 }) {
 export function Topo({ passo }) {
   return (
     <div className="topo">
-      <Link to="/" className="marca" aria-label="MighT, início">MighT<i>.</i></Link>
+      <Link to="/" className="marca" aria-label="MighT, início"><span className="marca-logo" /></Link>
       {passo && <span className="passo-n">{passo}</span>}
     </div>
   )

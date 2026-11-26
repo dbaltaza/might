@@ -1,5 +1,7 @@
-import { figura, CABECA, CORPO, BRACO_E, BRACO_D } from '../figura/index.js'
+import { CABECA, CORPO, BRACO_E, BRACO_D } from '../figura/index.js'
 import { DIMS } from '../logica/index.js'
+import { figuraDe } from './figuraDe.js'
+import FiguraVista from './FiguraVista.jsx'
 
 // Silhueta MighT (cabeça · corpo · braços) que se preenche à medida que escolhes as palavras.
 // Forma tirada dos wireframes da marca; a arte final vem de figura() (Parte C).
@@ -21,15 +23,13 @@ export default function Silhueta({ tags = {}, ativa, tamanho = 96 }) {
 
 // Pré-visualização grande para o ecrã largo (Criar, Enviar, Publico): a silhueta enche-se
 // e, com as 3 palavras escolhidas, dá lugar à figura real com a sua frase.
-export function PreviaFigura({ tags = {}, ativa }) {
+export function PreviaFigura({ tags = {}, ativa, artista }) {
   const n = DIMS.filter((d) => tags[d]).length
   if (n === DIMS.length) {
-    const fig = figura(tags.personalidade, tags.poder, tags.caracter)
+    const fig = figuraDe({ artista }, tags)
     return (
       <div className="previa">
-        <div className="figura revela" key={fig.src}>
-          <img src={fig.src} alt={`Figura MighT: ${tags.personalidade}, ${tags.poder}, ${tags.caracter}`} />
-        </div>
+        <FiguraVista fig={fig} className="revela" key={fig.src} alt={`Figura MighT: ${tags.personalidade}, ${tags.poder}, ${tags.caracter}`} />
         <div className="tagline">“{fig.tagline}”</div>
       </div>
     )

@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useEu, topTag } from '../estado.js'
-import { figura } from '../../figura/index.js'
+import { figuraDe } from '../figuraDe.js'
+import FiguraVista from '../FiguraVista.jsx'
 import { Barreira, Topo, PARTE } from '../ui.jsx'
 import { pesos, DIMS, DIM_NOME } from '../../logica/index.js'
 
@@ -17,7 +18,7 @@ function Conteudo({ eu }) {
   const base = circulo === 'Todos' ? eu.recebidos : eu.recebidos.filter((m) => m.circulo === circulo)
   const w = pesos(base)
   const n = base.filter((m) => m.estado === 'aceite').length
-  const fig = figura(topTag(w.personalidade), topTag(w.poder), topTag(w.caracter))
+  const fig = figuraDe(eu.pessoa, { personalidade: topTag(w.personalidade), poder: topTag(w.poder), caracter: topTag(w.caracter) })
   const s = eu.self || {}
 
   // Confirmado: tu e os outros. Superpoderes: os outros veem, tu não disseste. Talento escondido: só tu vês.
@@ -38,7 +39,7 @@ function Conteudo({ eu }) {
       <div className="segmentos" style={{ marginBottom: 8, flexWrap: 'wrap' }}>
         {circulos.map((c) => <button key={c} className={c === circulo ? 'on' : ''} onClick={() => setCirculo(c)}>{c}</button>)}
       </div>
-      <div className="figura"><img src={fig.src} alt="A tua figura vista pelos outros" /></div>
+      <FiguraVista fig={fig} alt="A tua figura vista pelos outros" />
       <h1 style={{ textAlign: 'center', marginTop: 0 }}>{eu.pessoa?.nome}, por {n} pessoa{n === 1 ? '' : 's'}</h1>
       <div className="tres">
         {DIMS.map((d) => <div key={d}><small>{PARTE[d]}</small>{topTag(w[d]) || '—'}</div>)}

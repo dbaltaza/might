@@ -2,7 +2,7 @@ import { inicial } from './ui.jsx'
 
 // A figura ao centro e, à volta, quem te reconheceu. Os lugares vazios enchem-se quando aceitas um MighT.
 // Só os nós novos animam (key = id), por isso o desbloqueio em palco é um único momento.
-export default function Orbita({ figura, pessoas = [], minimo = 3, max = 8 }) {
+export default function Orbita({ figura, moldura = false, pessoas = [], minimo = 3, max = 8 }) {
   const nos = pessoas.slice(0, max)
   const vazios = Math.max(0, minimo - nos.length)
   const total = nos.length + vazios
@@ -19,7 +19,7 @@ export default function Orbita({ figura, pessoas = [], minimo = 3, max = 8 }) {
           return <line key={p.id} x1="50" y1="50" x2={x} y2={y} stroke="rgba(255,255,255,0.35)" strokeWidth="0.35" strokeDasharray={p.vazio ? '1 1.2' : undefined} vectorEffect="non-scaling-stroke" />
         })}
       </svg>
-      <div className="centro"><img src={figura} alt="A tua figura MighT" /></div>
+      <div className={'centro' + (moldura ? ' com-moldura' : '')}>{moldura ? <div className="moldura"><img src={figura} alt="A tua figura MighT" /></div> : <img src={figura} alt="A tua figura MighT" />}</div>
       {todos.map((p, i) => {
         const { x, y } = pos(i)
         return (

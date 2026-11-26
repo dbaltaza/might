@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { figura } from '../../figura/index.js'
+import { figuraDe } from '../figuraDe.js'
+import FiguraVista from '../FiguraVista.jsx'
 import { useEu } from '../estado.js'
 import { Topo, PARTE } from '../ui.jsx'
 import { DIMS } from '../../logica/index.js'
@@ -21,13 +22,13 @@ export default function Feito() {
       </>
     )
   }
-  const fig = figura(s.personalidade, s.poder, s.caracter)
+  const fig = figuraDe(eu.pessoa, s)
   return (
     <>
       <Topo passo="O teu MighT" />
       <div className="ecra-centro">
       <h1 style={{ textAlign: 'center' }}>Olá, {eu.pessoa?.nome}</h1>
-      <div className="figura revela"><img src={fig.src} alt={`Figura MighT: ${s.personalidade}, ${s.poder}, ${s.caracter}`} /></div>
+      <FiguraVista fig={fig} className="revela" alt={`Figura MighT: ${s.personalidade}, ${s.poder}, ${s.caracter}`} />
       <div className="tagline">“{fig.tagline}”</div>
       <div className="tres">
         {DIMS.map((d) => <div key={d}><small>{PARTE[d]}</small>{s[d]}</div>)}

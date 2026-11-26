@@ -5,6 +5,7 @@ create table if not exists pessoas (
   id uuid primary key default gen_random_uuid(),
   nome text not null,                      -- só primeiro nome
   tagline text,
+  artista text,                            -- estilo escolhido (src/artistas.js); null = figura das palavras
   publico boolean not null default false,  -- nenhum MighT fica público sem consentimento
   criado_em timestamptz not null default now()
 );

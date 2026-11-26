@@ -1,3 +1,6 @@
+/* Mona Sans (kit de marca MighT, licença OFL em public/assets/fonts/OFL.txt): fonte variável local, funciona sem rede */
+@font-face { font-family: 'Mona Sans'; src: url('/assets/fonts/MonaSans-VariableFont_wdth-wght.ttf') format('truetype'); font-weight: 200 900; font-stretch: 75% 125%; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Mona Sans'; src: url('/assets/fonts/MonaSans-Italic-VariableFont_wdth-wght.ttf') format('truetype'); font-weight: 200 900; font-stretch: 75% 125%; font-style: italic; font-display: swap; }
 /* MighT · sistema visual a partir do guia de cores e dos wireframes 2026 da marca.
    Azul = como te vês (Self). Roxo = como os outros te veem (All MighT).
    Verde/azul/laranja só com significado: Confirmado, Superpoderes, Talentos escondidos. */
@@ -222,3 +225,30 @@ h1 { font-size: 30px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 7
   .modo { bottom: 16px; }
 }
 @media (min-width: 960px) and (prefers-reduced-transparency: reduce) { .barra { background: var(--ink); backdrop-filter: none; -webkit-backdrop-filter: none; } }
+
+/* Obras de artista (têm fundo): moldura de colecionável. Créditos do artista por baixo. */
+.moldura { width: min(62vw, 240px); aspect-ratio: 1; border-radius: 20px; overflow: hidden; background: var(--ink); box-shadow: 0 0 0 4px var(--branco), 0 18px 32px rgba(2, 52, 96, 0.35); }
+.moldura img, .figura .moldura img { width: 100%; height: 100%; object-fit: cover; filter: none; display: block; }
+.credito { margin: 10px 0 0; font-size: 12.5px; font-weight: 500; color: rgba(28, 30, 40, 0.66); text-align: center; }
+.roxo .credito, .vidro .credito { color: rgba(255, 255, 255, 0.75); }
+.orbita .centro.com-moldura .moldura { width: 100%; border-radius: 18px; }
+.col-hero .moldura { width: min(100%, 300px); }
+
+/* «Escolhe o teu artista» */
+.artistas { margin: 16px 0 4px; }
+.artistas-fila { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x proximity; padding: 4px 2px 10px; margin: 0 -20px; padding-inline: 20px; scrollbar-width: none; }
+.artistas-fila::-webkit-scrollbar { display: none; }
+.artista { flex: none; width: 86px; border: 0; background: none; padding: 0; cursor: pointer; scroll-snap-align: start; display: grid; gap: 6px; justify-items: center; }
+.artista-img { width: 86px; height: 86px; border-radius: 12px; overflow: hidden; display: grid; place-items: center; background: rgba(255, 255, 255, 0.45); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
+.artista.obra .artista-img { background: var(--ink); }
+.artista-img img { width: 100%; height: 100%; object-fit: contain; }
+.artista.obra .artista-img img { object-fit: cover; }
+.artista.palavras .artista-img img, .artista.avatar .artista-img img { width: 82%; height: 82%; }
+.artista.on .artista-img { box-shadow: 0 0 0 3px var(--azul-escuro), 0 0 0 5px var(--branco); }
+.artista-nome { font-size: 12px; font-weight: 500; line-height: 1.2; text-align: center; color: var(--ink); max-width: 86px; }
+.artista.on .artista-nome { font-weight: 700; }
+@media (hover: hover) { .artista:hover:not(.on) .artista-img { box-shadow: inset 0 0 0 2px var(--branco); } }
+
+/* Logótipo da marca (kit 10. Visual identity), pintado com a cor do tema via máscara */
+.marca-logo { display: block; width: 76px; aspect-ratio: 357 / 107; background: currentColor; -webkit-mask: url('/assets/logo-branco.svg') no-repeat center / contain; mask: url('/assets/logo-branco.svg') no-repeat center / contain; }
+.barra-marca .marca-logo { width: 68px; }
