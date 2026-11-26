@@ -1,0 +1,1106 @@
+{
+ "pessoas": [
+  {
+   "id": "p1",
+   "nome": "Rita",
+   "circulo": "Escola"
+  },
+  {
+   "id": "p2",
+   "nome": "Tomás",
+   "circulo": "Colegas"
+  },
+  {
+   "id": "p3",
+   "nome": "Inês",
+   "circulo": "Clientes"
+  },
+  {
+   "id": "p4",
+   "nome": "Duarte",
+   "circulo": "Comunidade"
+  },
+  {
+   "id": "p5",
+   "nome": "Beatriz",
+   "circulo": "Amigos"
+  },
+  {
+   "id": "p6",
+   "nome": "Afonso",
+   "circulo": "Escola"
+  },
+  {
+   "id": "p7",
+   "nome": "Leonor",
+   "circulo": "Amigos"
+  },
+  {
+   "id": "p8",
+   "nome": "Gonçalo",
+   "circulo": "Escola"
+  },
+  {
+   "id": "p9",
+   "nome": "Matilde",
+   "circulo": "Clientes"
+  },
+  {
+   "id": "p10",
+   "nome": "Rodrigo",
+   "circulo": "Colegas"
+  },
+  {
+   "id": "p11",
+   "nome": "Carolina",
+   "circulo": "Amigos"
+  },
+  {
+   "id": "p12",
+   "nome": "Martim",
+   "circulo": "Clientes"
+  },
+  {
+   "id": "p13",
+   "nome": "Mariana",
+   "circulo": "Comunidade"
+  },
+  {
+   "id": "p14",
+   "nome": "Diogo",
+   "circulo": "Amigos"
+  },
+  {
+   "id": "p15",
+   "nome": "Sofia",
+   "circulo": "Amigos"
+  },
+  {
+   "id": "p16",
+   "nome": "Tiago",
+   "circulo": "Escola"
+  },
+  {
+   "id": "p17",
+   "nome": "Joana",
+   "circulo": "Comunidade"
+  },
+  {
+   "id": "p18",
+   "nome": "Miguel",
+   "circulo": "Escola"
+  },
+  {
+   "id": "p19",
+   "nome": "Catarina",
+   "circulo": "Família"
+  },
+  {
+   "id": "p20",
+   "nome": "Pedro",
+   "circulo": "Colegas"
+  },
+  {
+   "id": "p21",
+   "nome": "Ana",
+   "circulo": "Clientes"
+  },
+  {
+   "id": "p22",
+   "nome": "Rui",
+   "circulo": "Família"
+  },
+  {
+   "id": "p23",
+   "nome": "Marta",
+   "circulo": "Escola"
+  },
+  {
+   "id": "p24",
+   "nome": "Nuno",
+   "circulo": "Família"
+  },
+  {
+   "id": "p25",
+   "nome": "Clara",
+   "circulo": "Amigos"
+  },
+  {
+   "id": "p26",
+   "nome": "Hugo",
+   "circulo": "Família"
+  },
+  {
+   "id": "p27",
+   "nome": "Sara",
+   "circulo": "Amigos"
+  },
+  {
+   "id": "p28",
+   "nome": "Bruno",
+   "circulo": "Comunidade"
+  },
+  {
+   "id": "p29",
+   "nome": "Lara",
+   "circulo": "Escola"
+  },
+  {
+   "id": "p30",
+   "nome": "Vasco",
+   "circulo": "Família"
+  }
+ ],
+ "mights": [
+  {
+   "id": "m1",
+   "de": "p1",
+   "para": "p1",
+   "circulo": "Escola",
+   "personalidade": "Foco",
+   "poder": "Investigação",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m2",
+   "de": "p2",
+   "para": "p1",
+   "circulo": "Família",
+   "personalidade": "Foco",
+   "poder": "Análise",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m3",
+   "de": "p3",
+   "para": "p1",
+   "circulo": "Amigos",
+   "personalidade": "Foco",
+   "poder": "Análise",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m4",
+   "de": "p4",
+   "para": "p1",
+   "circulo": "Família",
+   "personalidade": "Foco",
+   "poder": "Investigação",
+   "caracter": "Persistência",
+   "estado": "pendente"
+  },
+  {
+   "id": "m5",
+   "de": "p29",
+   "para": "p2",
+   "circulo": "Família",
+   "personalidade": "Empatia",
+   "poder": "Cuidado",
+   "caracter": "Lealdade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m6",
+   "de": "p22",
+   "para": "p2",
+   "circulo": "Amigos",
+   "personalidade": "Empatia",
+   "poder": "Mediação",
+   "caracter": "Respeito",
+   "estado": "pendente"
+  },
+  {
+   "id": "m7",
+   "de": "p17",
+   "para": "p2",
+   "circulo": "Colegas",
+   "personalidade": "Empatia",
+   "poder": "Escuta",
+   "caracter": "Bondade",
+   "estado": "pendente"
+  },
+  {
+   "id": "m8",
+   "de": "p26",
+   "para": "p3",
+   "circulo": "Clientes",
+   "personalidade": "Ousadia",
+   "poder": "Vendas",
+   "caracter": "Coragem",
+   "estado": "aceite"
+  },
+  {
+   "id": "m9",
+   "de": "p10",
+   "para": "p3",
+   "circulo": "Clientes",
+   "personalidade": "Energia",
+   "poder": "Escuta",
+   "caracter": "Humildade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m10",
+   "de": "p22",
+   "para": "p3",
+   "circulo": "Amigos",
+   "personalidade": "Energia",
+   "poder": "Persuasão",
+   "caracter": "Coragem",
+   "estado": "aceite"
+  },
+  {
+   "id": "m11",
+   "de": "p10",
+   "para": "p4",
+   "circulo": "Colegas",
+   "personalidade": "Imaginação",
+   "poder": "Design",
+   "caracter": "Coerência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m12",
+   "de": "p27",
+   "para": "p4",
+   "circulo": "Amigos",
+   "personalidade": "Criatividade",
+   "poder": "Design",
+   "caracter": "Coerência",
+   "estado": "pendente"
+  },
+  {
+   "id": "m13",
+   "de": "p9",
+   "para": "p4",
+   "circulo": "Colegas",
+   "personalidade": "Criatividade",
+   "poder": "Vendas",
+   "caracter": "Generosidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m14",
+   "de": "p5",
+   "para": "p5",
+   "circulo": "Amigos",
+   "personalidade": "Determinação",
+   "poder": "Estratégia",
+   "caracter": "Compromisso",
+   "estado": "aceite"
+  },
+  {
+   "id": "m15",
+   "de": "p12",
+   "para": "p5",
+   "circulo": "Clientes",
+   "personalidade": "Determinação",
+   "poder": "Estratégia",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m16",
+   "de": "p10",
+   "para": "p5",
+   "circulo": "Amigos",
+   "personalidade": "Determinação",
+   "poder": "Planeamento",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m17",
+   "de": "p10",
+   "para": "p5",
+   "circulo": "Escola",
+   "personalidade": "Determinação",
+   "poder": "Planeamento",
+   "caracter": "Solidariedade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m18",
+   "de": "p5",
+   "para": "p6",
+   "circulo": "Escola",
+   "personalidade": "Alegria",
+   "poder": "Análise",
+   "caracter": "Persistência",
+   "estado": "pendente"
+  },
+  {
+   "id": "m19",
+   "de": "p7",
+   "para": "p6",
+   "circulo": "Escola",
+   "personalidade": "Paciência",
+   "poder": "Construção",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m20",
+   "de": "p3",
+   "para": "p6",
+   "circulo": "Escola",
+   "personalidade": "Foco",
+   "poder": "Gestão de tempo",
+   "caracter": "Persistência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m21",
+   "de": "p18",
+   "para": "p7",
+   "circulo": "Colegas",
+   "personalidade": "Imaginação",
+   "poder": "Mediação",
+   "caracter": "Bondade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m22",
+   "de": "p26",
+   "para": "p7",
+   "circulo": "Colegas",
+   "personalidade": "Empatia",
+   "poder": "Mediação",
+   "caracter": "Transparência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m23",
+   "de": "p14",
+   "para": "p7",
+   "circulo": "Família",
+   "personalidade": "Empatia",
+   "poder": "Escuta",
+   "caracter": "Respeito",
+   "estado": "aceite"
+  },
+  {
+   "id": "m24",
+   "de": "p24",
+   "para": "p8",
+   "circulo": "Amigos",
+   "personalidade": "Entusiasmo",
+   "poder": "Persuasão",
+   "caracter": "Confiança",
+   "estado": "aceite"
+  },
+  {
+   "id": "m25",
+   "de": "p10",
+   "para": "p8",
+   "circulo": "Família",
+   "personalidade": "Energia",
+   "poder": "Persuasão",
+   "caracter": "Confiança",
+   "estado": "aceite"
+  },
+  {
+   "id": "m26",
+   "de": "p5",
+   "para": "p8",
+   "circulo": "Família",
+   "personalidade": "Calma",
+   "poder": "Estratégia",
+   "caracter": "Confiança",
+   "estado": "aceite"
+  },
+  {
+   "id": "m27",
+   "de": "p2",
+   "para": "p9",
+   "circulo": "Amigos",
+   "personalidade": "Imaginação",
+   "poder": "Escrita",
+   "caracter": "Coerência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m28",
+   "de": "p24",
+   "para": "p9",
+   "circulo": "Comunidade",
+   "personalidade": "Criatividade",
+   "poder": "Design",
+   "caracter": "Integridade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m29",
+   "de": "p21",
+   "para": "p9",
+   "circulo": "Escola",
+   "personalidade": "Curiosidade",
+   "poder": "Narrativa",
+   "caracter": "Coerência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m30",
+   "de": "p7",
+   "para": "p10",
+   "circulo": "Clientes",
+   "personalidade": "Ousadia",
+   "poder": "Persuasão",
+   "caracter": "Compromisso",
+   "estado": "pendente"
+  },
+  {
+   "id": "m31",
+   "de": "p25",
+   "para": "p10",
+   "circulo": "Colegas",
+   "personalidade": "Ousadia",
+   "poder": "Estratégia",
+   "caracter": "Compromisso",
+   "estado": "aceite"
+  },
+  {
+   "id": "m32",
+   "de": "p30",
+   "para": "p10",
+   "circulo": "Amigos",
+   "personalidade": "Ousadia",
+   "poder": "Programação",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m33",
+   "de": "p13",
+   "para": "p11",
+   "circulo": "Escola",
+   "personalidade": "Serenidade",
+   "poder": "Improviso",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m34",
+   "de": "p29",
+   "para": "p11",
+   "circulo": "Amigos",
+   "personalidade": "Foco",
+   "poder": "Investigação",
+   "caracter": "Persistência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m35",
+   "de": "p28",
+   "para": "p11",
+   "circulo": "Colegas",
+   "personalidade": "Curiosidade",
+   "poder": "Investigação",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m36",
+   "de": "p22",
+   "para": "p12",
+   "circulo": "Família",
+   "personalidade": "Empatia",
+   "poder": "Cuidado",
+   "caracter": "Transparência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m37",
+   "de": "p21",
+   "para": "p12",
+   "circulo": "Família",
+   "personalidade": "Calma",
+   "poder": "Mediação",
+   "caracter": "Respeito",
+   "estado": "aceite"
+  },
+  {
+   "id": "m38",
+   "de": "p27",
+   "para": "p12",
+   "circulo": "Família",
+   "personalidade": "Empatia",
+   "poder": "Escuta",
+   "caracter": "Respeito",
+   "estado": "aceite"
+  },
+  {
+   "id": "m39",
+   "de": "p15",
+   "para": "p13",
+   "circulo": "Família",
+   "personalidade": "Entusiasmo",
+   "poder": "Organização",
+   "caracter": "Confiança",
+   "estado": "aceite"
+  },
+  {
+   "id": "m40",
+   "de": "p11",
+   "para": "p13",
+   "circulo": "Amigos",
+   "personalidade": "Serenidade",
+   "poder": "Design",
+   "caracter": "Confiança",
+   "estado": "aceite"
+  },
+  {
+   "id": "m41",
+   "de": "p23",
+   "para": "p13",
+   "circulo": "Colegas",
+   "personalidade": "Entusiasmo",
+   "poder": "Vendas",
+   "caracter": "Coragem",
+   "estado": "aceite"
+  },
+  {
+   "id": "m42",
+   "de": "p27",
+   "para": "p14",
+   "circulo": "Colegas",
+   "personalidade": "Empatia",
+   "poder": "Narrativa",
+   "caracter": "Integridade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m43",
+   "de": "p24",
+   "para": "p14",
+   "circulo": "Família",
+   "personalidade": "Imaginação",
+   "poder": "Design",
+   "caracter": "Persistência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m44",
+   "de": "p23",
+   "para": "p14",
+   "circulo": "Clientes",
+   "personalidade": "Criatividade",
+   "poder": "Design",
+   "caracter": "Coerência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m45",
+   "de": "p26",
+   "para": "p15",
+   "circulo": "Amigos",
+   "personalidade": "Ousadia",
+   "poder": "Planeamento",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m46",
+   "de": "p30",
+   "para": "p15",
+   "circulo": "Colegas",
+   "personalidade": "Ousadia",
+   "poder": "Planeamento",
+   "caracter": "Compromisso",
+   "estado": "aceite"
+  },
+  {
+   "id": "m47",
+   "de": "p25",
+   "para": "p15",
+   "circulo": "Amigos",
+   "personalidade": "Ousadia",
+   "poder": "Estratégia",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m48",
+   "de": "p16",
+   "para": "p16",
+   "circulo": "Escola",
+   "personalidade": "Otimismo",
+   "poder": "Análise",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m49",
+   "de": "p20",
+   "para": "p16",
+   "circulo": "Clientes",
+   "personalidade": "Foco",
+   "poder": "Comunicação",
+   "caracter": "Persistência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m50",
+   "de": "p15",
+   "para": "p16",
+   "circulo": "Colegas",
+   "personalidade": "Foco",
+   "poder": "Investigação",
+   "caracter": "Persistência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m51",
+   "de": "p6",
+   "para": "p16",
+   "circulo": "Comunidade",
+   "personalidade": "Criatividade",
+   "poder": "Investigação",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m52",
+   "de": "p15",
+   "para": "p17",
+   "circulo": "Colegas",
+   "personalidade": "Empatia",
+   "poder": "Cuidado",
+   "caracter": "Transparência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m53",
+   "de": "p15",
+   "para": "p17",
+   "circulo": "Clientes",
+   "personalidade": "Calma",
+   "poder": "Mediação",
+   "caracter": "Respeito",
+   "estado": "aceite"
+  },
+  {
+   "id": "m54",
+   "de": "p26",
+   "para": "p17",
+   "circulo": "Clientes",
+   "personalidade": "Intuição",
+   "poder": "Persuasão",
+   "caracter": "Generosidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m55",
+   "de": "p18",
+   "para": "p18",
+   "circulo": "Escola",
+   "personalidade": "Curiosidade",
+   "poder": "Comunicação",
+   "caracter": "Coragem",
+   "estado": "aceite"
+  },
+  {
+   "id": "m56",
+   "de": "p10",
+   "para": "p18",
+   "circulo": "Colegas",
+   "personalidade": "Imaginação",
+   "poder": "Vendas",
+   "caracter": "Coragem",
+   "estado": "aceite"
+  },
+  {
+   "id": "m57",
+   "de": "p2",
+   "para": "p18",
+   "circulo": "Amigos",
+   "personalidade": "Energia",
+   "poder": "Comunicação",
+   "caracter": "Coragem",
+   "estado": "aceite"
+  },
+  {
+   "id": "m58",
+   "de": "p23",
+   "para": "p18",
+   "circulo": "Comunidade",
+   "personalidade": "Energia",
+   "poder": "Comunicação",
+   "caracter": "Confiança",
+   "estado": "aceite"
+  },
+  {
+   "id": "m59",
+   "de": "p10",
+   "para": "p19",
+   "circulo": "Escola",
+   "personalidade": "Empatia",
+   "poder": "Design",
+   "caracter": "Coerência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m60",
+   "de": "p14",
+   "para": "p19",
+   "circulo": "Clientes",
+   "personalidade": "Imaginação",
+   "poder": "Escrita",
+   "caracter": "Coerência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m61",
+   "de": "p22",
+   "para": "p19",
+   "circulo": "Escola",
+   "personalidade": "Imaginação",
+   "poder": "Design",
+   "caracter": "Integridade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m62",
+   "de": "p1",
+   "para": "p20",
+   "circulo": "Escola",
+   "personalidade": "Ousadia",
+   "poder": "Liderança",
+   "caracter": "Compromisso",
+   "estado": "aceite"
+  },
+  {
+   "id": "m63",
+   "de": "p11",
+   "para": "p20",
+   "circulo": "Comunidade",
+   "personalidade": "Determinação",
+   "poder": "Estratégia",
+   "caracter": "Gratidão",
+   "estado": "aceite"
+  },
+  {
+   "id": "m64",
+   "de": "p13",
+   "para": "p20",
+   "circulo": "Colegas",
+   "personalidade": "Determinação",
+   "poder": "Planeamento",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m65",
+   "de": "p29",
+   "para": "p21",
+   "circulo": "Escola",
+   "personalidade": "Foco",
+   "poder": "Números",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m66",
+   "de": "p28",
+   "para": "p21",
+   "circulo": "Clientes",
+   "personalidade": "Curiosidade",
+   "poder": "Investigação",
+   "caracter": "Persistência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m67",
+   "de": "p1",
+   "para": "p21",
+   "circulo": "Escola",
+   "personalidade": "Energia",
+   "poder": "Análise",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m68",
+   "de": "p12",
+   "para": "p22",
+   "circulo": "Amigos",
+   "personalidade": "Serenidade",
+   "poder": "Cuidado",
+   "caracter": "Bondade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m69",
+   "de": "p6",
+   "para": "p22",
+   "circulo": "Clientes",
+   "personalidade": "Calma",
+   "poder": "Vendas",
+   "caracter": "Respeito",
+   "estado": "aceite"
+  },
+  {
+   "id": "m70",
+   "de": "p19",
+   "para": "p22",
+   "circulo": "Escola",
+   "personalidade": "Calma",
+   "poder": "Escuta",
+   "caracter": "Respeito",
+   "estado": "aceite"
+  },
+  {
+   "id": "m71",
+   "de": "p10",
+   "para": "p23",
+   "circulo": "Família",
+   "personalidade": "Energia",
+   "poder": "Persuasão",
+   "caracter": "Confiança",
+   "estado": "aceite"
+  },
+  {
+   "id": "m72",
+   "de": "p22",
+   "para": "p23",
+   "circulo": "Amigos",
+   "personalidade": "Energia",
+   "poder": "Persuasão",
+   "caracter": "Coragem",
+   "estado": "aceite"
+  },
+  {
+   "id": "m73",
+   "de": "p3",
+   "para": "p23",
+   "circulo": "Colegas",
+   "personalidade": "Alegria",
+   "poder": "Resolução de problemas",
+   "caracter": "Coragem",
+   "estado": "aceite"
+  },
+  {
+   "id": "m74",
+   "de": "p23",
+   "para": "p24",
+   "circulo": "Colegas",
+   "personalidade": "Criatividade",
+   "poder": "Vendas",
+   "caracter": "Integridade",
+   "estado": "pendente"
+  },
+  {
+   "id": "m75",
+   "de": "p26",
+   "para": "p24",
+   "circulo": "Escola",
+   "personalidade": "Imaginação",
+   "poder": "Planeamento",
+   "caracter": "Coerência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m76",
+   "de": "p28",
+   "para": "p24",
+   "circulo": "Família",
+   "personalidade": "Imaginação",
+   "poder": "Escrita",
+   "caracter": "Integridade",
+   "estado": "pendente"
+  },
+  {
+   "id": "m77",
+   "de": "p12",
+   "para": "p25",
+   "circulo": "Escola",
+   "personalidade": "Alegria",
+   "poder": "Estratégia",
+   "caracter": "Compromisso",
+   "estado": "aceite"
+  },
+  {
+   "id": "m78",
+   "de": "p22",
+   "para": "p25",
+   "circulo": "Colegas",
+   "personalidade": "Energia",
+   "poder": "Liderança",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m79",
+   "de": "p4",
+   "para": "p25",
+   "circulo": "Comunidade",
+   "personalidade": "Determinação",
+   "poder": "Planeamento",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m80",
+   "de": "p23",
+   "para": "p26",
+   "circulo": "Escola",
+   "personalidade": "Curiosidade",
+   "poder": "Programação",
+   "caracter": "Persistência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m81",
+   "de": "p2",
+   "para": "p26",
+   "circulo": "Escola",
+   "personalidade": "Foco",
+   "poder": "Negociação",
+   "caracter": "Humildade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m82",
+   "de": "p30",
+   "para": "p26",
+   "circulo": "Colegas",
+   "personalidade": "Curiosidade",
+   "poder": "Programação",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m83",
+   "de": "p27",
+   "para": "p27",
+   "circulo": "Amigos",
+   "personalidade": "Sensibilidade",
+   "poder": "Escuta",
+   "caracter": "Respeito",
+   "estado": "aceite"
+  },
+  {
+   "id": "m84",
+   "de": "p24",
+   "para": "p27",
+   "circulo": "Clientes",
+   "personalidade": "Energia",
+   "poder": "Cuidado",
+   "caracter": "Humildade",
+   "estado": "recusado"
+  },
+  {
+   "id": "m85",
+   "de": "p1",
+   "para": "p27",
+   "circulo": "Clientes",
+   "personalidade": "Energia",
+   "poder": "Escuta",
+   "caracter": "Confiança",
+   "estado": "aceite"
+  },
+  {
+   "id": "m86",
+   "de": "p19",
+   "para": "p27",
+   "circulo": "Escola",
+   "personalidade": "Calma",
+   "poder": "Mediação",
+   "caracter": "Respeito",
+   "estado": "aceite"
+  },
+  {
+   "id": "m87",
+   "de": "p3",
+   "para": "p28",
+   "circulo": "Clientes",
+   "personalidade": "Entusiasmo",
+   "poder": "Vendas",
+   "caracter": "Honestidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m88",
+   "de": "p11",
+   "para": "p28",
+   "circulo": "Clientes",
+   "personalidade": "Energia",
+   "poder": "Vendas",
+   "caracter": "Coragem",
+   "estado": "recusado"
+  },
+  {
+   "id": "m89",
+   "de": "p17",
+   "para": "p28",
+   "circulo": "Escola",
+   "personalidade": "Energia",
+   "poder": "Improviso",
+   "caracter": "Confiança",
+   "estado": "aceite"
+  },
+  {
+   "id": "m90",
+   "de": "p7",
+   "para": "p29",
+   "circulo": "Família",
+   "personalidade": "Empatia",
+   "poder": "Narrativa",
+   "caracter": "Coerência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m91",
+   "de": "p13",
+   "para": "p29",
+   "circulo": "Colegas",
+   "personalidade": "Imaginação",
+   "poder": "Narrativa",
+   "caracter": "Coerência",
+   "estado": "aceite"
+  },
+  {
+   "id": "m92",
+   "de": "p27",
+   "para": "p29",
+   "circulo": "Colegas",
+   "personalidade": "Criatividade",
+   "poder": "Narrativa",
+   "caracter": "Integridade",
+   "estado": "pendente"
+  },
+  {
+   "id": "m93",
+   "de": "p28",
+   "para": "p30",
+   "circulo": "Clientes",
+   "personalidade": "Calma",
+   "poder": "Planeamento",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m94",
+   "de": "p24",
+   "para": "p30",
+   "circulo": "Comunidade",
+   "personalidade": "Ousadia",
+   "poder": "Planeamento",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  },
+  {
+   "id": "m95",
+   "de": "p9",
+   "para": "p30",
+   "circulo": "Colegas",
+   "personalidade": "Determinação",
+   "poder": "Planeamento",
+   "caracter": "Responsabilidade",
+   "estado": "aceite"
+  }
+ ]
+}

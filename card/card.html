@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MighT Card</title>
+<style>
+  body { margin: 0; padding: 16px; font: 16px system-ui, sans-serif; background: #eee8dd; color: #1d1b16; }
+  .barra { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  select, button { font: inherit; padding: 10px 14px; border-radius: 10px; border: 1px solid #1d1b16; background: #fff; }
+  button[aria-pressed="true"] { background: #1d1b16; color: #fff; }
+  canvas { display: block; max-width: 100%; max-height: 75vh; box-shadow: 0 4px 20px #0002; }
+</style>
+</head>
+<body>
+<div class="barra">
+  <label>Pessoa <select id="pessoa"></select></label>
+  <button data-f="retrato" aria-pressed="true">Retrato</button>
+  <button data-f="linkedin" aria-pressed="false">LinkedIn</button>
+  <button id="baixar">Descarregar PNG</button>
+</div>
+<canvas id="card"></canvas>
+<script type="module">
+  import { perfis, principais } from '../logica/logica.js';
+  import { desenharCard, descarregar, figuraProvisoria } from './card.js';
+
+  const [dados, tags] = await Promise.all(['../logica/dados.json', '../logica/tags.json'].map(u => fetch(u).then(r => r.json())));
+  const tagline = t => tags.personalidade.find(x => x.tag === t)?.tagline ?? '';
+  const ps = perfis(dados).filter(p => p.desbloqueado);
+  const sel = document.getElementById('pessoa'), canvas = document.getElementById('card');
+  sel.innerHTML = ps.map(p => `<option value="${p.id}">${p.nome}</option>`).join('');
+  let formato = 'retrato';
+
+  async function render() {
+    const p = ps.find(x => x.id === sel.value);
+    const t = principais(p.pesos);
+    const circulos = [...new Set(dados.mights.filter(m => m.para === p.id && m.de !== p.id && m.estado === 'aceite').map(m => m.circulo))];
+    await desenharCard(canvas, { nome: p.nome, svg: figuraProvisoria(t.personalidade, t.poder, t.caracter), tagline: tagline(t.personalidade), tags: t, circulos }, formato);
+  }
+  sel.onchange = render;
+  document.querySelectorAll('[data-f]').forEach(b => b.onclick = () => {
+    formato = b.dataset.f;
+    document.querySelectorAll('[data-f]').forEach(x => x.setAttribute('aria-pressed', x === b));
+    render();
+  });
+  document.getElementById('baixar').onclick = () => descarregar(canvas, `might-${sel.selectedOptions[0].text}-${formato}.png`);
+  render();
+</script>
+</body>
+</html>
