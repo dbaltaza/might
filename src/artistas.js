@@ -1,7 +1,7 @@
 // «Escolhe o teu artista» (como o ecrã de 2015 «Choose your designer»): cada figura mantém o estilo de um só artista.
 // Arte do kit MighT (CASE ASSETS 05). 'palavras' = figura gerada a partir das 3 palavras (figura/index.js).
-const obra = (id, nome) => ({ id: 'obra-' + id, nome, src: `/assets/artistas/obra-${id}.jpg`, tipo: 'obra' })
-const avatar = (n) => ({ id: 'avatar-' + n, nome: 'Série ' + Number(n), src: `/assets/artistas/avatar-${n}.png`, tipo: 'avatar' })
+const obra = (id, nome) => ({ id: 'obra-' + id, nome, src: `/assets/artistas/obra-${id}.webp`, tipo: 'obra' })
+const avatar = (n) => ({ id: 'avatar-' + n, nome: 'Série ' + Number(n), src: `/assets/artistas/avatar-${n}.webp`, tipo: 'avatar' })
 
 export const ARTISTAS = [
   { id: 'palavras', nome: 'As tuas palavras', tipo: 'palavras' },
