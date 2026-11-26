@@ -1,6 +1,7 @@
 // Parte A: lógica. Substituam o corpo das funções, NÃO as assinaturas (o front end já as usa).
 import TAGS_JSON from './tags.json'
 import PESSOAS_JSON from './pessoas_ficticias.json'
+import FUNCOES_JSON from './funcoes.json'
 
 export const DIMS = ['personalidade', 'poder', 'caracter']
 export const DIM_NOME = { personalidade: 'Personalidade', poder: 'Poder', caracter: 'Carácter' }
@@ -11,6 +12,9 @@ export const TAGS = TAGS_JSON
 
 // [{ id, nome, self: {personalidade, poder, caracter}, mights: [{de, circulo, personalidade, poder, caracter, estado}] }]
 export const PESSOAS_FICTICIAS = PESSOAS_JSON.pessoas
+
+// [{ funcao, tags, agora, proximo, desafio, porque }]. Hipóteses, não conselhos.
+export const FUNCOES = FUNCOES_JSON.funcoes
 
 export function tagline(dim, tag) {
   return TAGS[dim]?.find((t) => t.tag === tag)?.tagline ?? ''
@@ -69,16 +73,21 @@ export function maisParecidos(eu, todos = PESSOAS_FICTICIAS, dims = DIMS) {
     .sort((x, y) => y.pct - x.pct)
 }
 
-// STUB (Parte A): funções de pessoas como tu + percurso. Devolve [{ funcao, agora, proximo, desafio, porque }]
-export function funcoesIdeais(eu) {
-  const top = DIMS.map((d) => Object.entries(eu.pesos[d] || {}).sort((a, b) => b[1] - a[1])[0]?.[0]).filter(Boolean)
-  return [
-    {
-      funcao: 'Facilitador(a) de equipas',
-      agora: 'Membro de equipa de projeto',
-      proximo: 'Facilitador(a) de equipas',
-      desafio: 'Líder de transformação',
-      porque: `Hipótese: quem te conhece vê-te como ${top.join(', ')}, um perfil comum em quem junta pessoas à volta de um objetivo.`,
-    },
-  ]
+// Encaixe de uma função num perfil: soma dos pesos das tags da função.
+const encaixe = (f, p) => f.tags.reduce((s, t) => s + DIMS.reduce((x, d) => x + (p[d]?.[t] || 0), 0), 0)
+
+// Funções de pessoas como tu: o teu encaixe + o encaixe médio das 3 pessoas mais parecidas.
+// Devolve as 3 melhores: [{ funcao, agora, proximo, desafio, porque }]. Só hipóteses.
+export function funcoesIdeais(eu, todos = PESSOAS_FICTICIAS, funcoes = FUNCOES, n = 3) {
+  const parecidos = maisParecidos(eu, todos).slice(0, 3).map((x) => pesos(x.pessoa.mights))
+  const nota = (f) => encaixe(f, eu.pesos) + parecidos.reduce((s, p) => s + encaixe(f, p), 0) / (parecidos.length || 1)
+  return [...funcoes]
+    .sort((a, b) => nota(b) - nota(a))
+    .slice(0, n)
+    .map((f) => {
+      const tuas = f.tags.filter((t) => DIMS.some((d) => eu.pesos[d]?.[t]))
+      const lista = tuas.length > 1 ? `${tuas.slice(0, -1).join(', ')} e ${tuas.at(-1)}` : tuas[0]
+      const visto = tuas.length ? `Quem te conhece diz ${lista}: ` : 'Pessoas como tu seguem este caminho: '
+      return { funcao: f.funcao, agora: f.agora, proximo: f.proximo, desafio: f.desafio, porque: visto + f.porque }
+    })
 }

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { pesos, desbloqueado, semelhanca, maisParecidos, TAGS, PESSOAS_FICTICIAS, DIMS, tagline } from '../logica/index.js'
+import { pesos, desbloqueado, semelhanca, maisParecidos, funcoesIdeais, FUNCOES, TAGS, PESSOAS_FICTICIAS, DIMS, tagline } from '../logica/index.js'
 
 const m = (personalidade, poder, caracter, estado = 'aceite', circulo = 'Amigos') => ({ personalidade, poder, caracter, estado, circulo })
 
@@ -68,5 +68,20 @@ describe('dados fictícios', () => {
   it('todas as palavras dos MighTs existem na biblioteca', () => {
     const existe = (d, t) => TAGS[d].some((x) => x.tag === t)
     for (const p of PESSOAS_FICTICIAS) for (const mi of p.mights) for (const d of DIMS) expect(existe(d, mi[d])).toBe(true)
+  })
+})
+
+describe('funções ideais (hipóteses)', () => {
+  it('todas as tags das funções existem na biblioteca', () => {
+    for (const f of FUNCOES) for (const t of f.tags) expect(DIMS.some((d) => TAGS[d].some((x) => x.tag === t)), t).toBe(true)
+  })
+  it('devolve 3 funções com percurso e porquê', () => {
+    const lista = funcoesIdeais({ pesos: pesos(PESSOAS_FICTICIAS[0].mights) })
+    expect(lista).toHaveLength(3)
+    for (const f of lista) for (const k of ['funcao', 'agora', 'proximo', 'desafio', 'porque']) expect(f[k]).toBeTruthy()
+  })
+  it('um perfil analítico recebe primeiro Analista de dados', () => {
+    const eu = { pesos: pesos([m('Lógico', 'Analisador', 'Disciplina'), m('Curioso', 'Investigador', 'Disciplina'), m('Lógico', 'Analisador', 'Disciplina')]) }
+    expect(funcoesIdeais(eu)[0].funcao).toBe('Analista de dados')
   })
 })
