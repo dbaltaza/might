@@ -8,11 +8,24 @@ import { DIMS } from '../../logica/index.js'
 export default function Feito() {
   const eu = useEu()
   const s = eu.self
-  if (!s) return <Topo />
+  if (!eu.carregado) return <Topo />
+  if (!s) {
+    return (
+      <>
+        <Topo />
+        <div className="ecra-centro">
+          <h1>Ainda não tens um MighT</h1>
+          <p className="lead">Escolhe três palavras sobre ti. Demora menos de 2 minutos.</p>
+          <Link className="btn" to="/criar">Criar o meu MighT</Link>
+        </div>
+      </>
+    )
+  }
   const fig = figura(s.personalidade, s.poder, s.caracter)
   return (
     <>
       <Topo passo="O teu MighT" />
+      <div className="ecra-centro">
       <h1 style={{ textAlign: 'center' }}>Olá, {eu.pessoa?.nome}</h1>
       <div className="figura revela"><img src={fig.src} alt={`Figura MighT: ${s.personalidade}, ${s.poder}, ${s.caracter}`} /></div>
       <div className="tagline">“{fig.tagline}”</div>
@@ -24,6 +37,7 @@ export default function Feito() {
         <p className="nota" style={{ margin: 0 }}>E os outros? Para receberes, começa por dar: manda um MighT a alguém em quem vês potencial. Essa pessoa costuma retribuir.</p>
       </div>
       <Link className="btn" to="/enviar">Mandar um MighT</Link>
+      </div>
     </>
   )
 }

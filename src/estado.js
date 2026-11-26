@@ -1,17 +1,30 @@
 import { useEffect, useState, useCallback } from 'react'
-import { meuId, lerPessoa, listarMights, ouvirMights } from './db.js'
+import { meuId, lerPessoa, listarMights, ouvirMights, limparTudo } from './db.js'
 import { desbloqueado, pesos, MIN_DESBLOQUEIO } from '../logica/index.js'
 
 // Estado do utilizador deste telemóvel: pessoa, Self MighT, MighTs recebidos (tempo real).
 export function useEu() {
-  const id = meuId()
+  const [perdido, setPerdido] = useState(false)
+  const id = perdido ? null : meuId()
   const [pessoa, setPessoa] = useState(null)
   const [mights, setMights] = useState([])
   const [carregado, setCarregado] = useState(!id)
 
   const recarregar = useCallback(async () => {
     if (!id) return
-    const [p, ms] = await Promise.all([lerPessoa(id), listarMights(id)])
+    let p, ms
+    try {
+      ;[p, ms] = await Promise.all([lerPessoa(id), listarMights(id)])
+    } catch {
+      setCarregado(true) // sem rede: mantém o que já tinha
+      return
+    }
+    if (p === null) {
+      limparTudo() // este telemóvel guardava um "eu" que não existe nesta base de dados
+      setPerdido(true)
+      setCarregado(true)
+      return
+    }
     setPessoa(p)
     setMights(ms)
     setCarregado(true)

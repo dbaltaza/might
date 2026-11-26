@@ -33,6 +33,8 @@ function Conteudo({ eu }) {
   return (
     <>
       <Topo passo="3 de 6 · All MighT" />
+      <div className="duas-colunas">
+      <div className="col-hero">
       <div className="segmentos" style={{ marginBottom: 8, flexWrap: 'wrap' }}>
         {circulos.map((c) => <button key={c} className={c === circulo ? 'on' : ''} onClick={() => setCirculo(c)}>{c}</button>)}
       </div>
@@ -41,7 +43,8 @@ function Conteudo({ eu }) {
       <div className="tres">
         {DIMS.map((d) => <div key={d}><small>{PARTE[d]}</small>{topTag(w[d]) || '—'}</div>)}
       </div>
-
+      </div>
+      <div className="col-conteudo">
       <div className="vidro">
         <h2>Tu e os outros</h2>
         {conf.length > 0 && (
@@ -82,6 +85,8 @@ function Conteudo({ eu }) {
         <p className="nota">Peso de uma palavra = vezes que foi escolhida ÷ MighTs aceites nessa dimensão.</p>
       </div>
       <Link className="btn" to="/card">Criar o meu MighT Card</Link>
+      </div>
+      </div>
     </>
   )
 }

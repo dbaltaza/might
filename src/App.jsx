@@ -45,9 +45,12 @@ const ABAS = [['/caixa', 'Caixa'], ['/perfil', 'All MighT'], ['/card', 'Card'], 
 function Nav({ visivel }) {
   if (!visivel) return null
   return (
-    <nav className="nav" aria-label="Secções">
-      {ABAS.map(([to, t]) => <NavLink key={to} to={to} className={({ isActive }) => (isActive ? 'ativo' : '')}>{t}</NavLink>)}
-    </nav>
+    <header className="barra">
+      <Link to="/" className="marca barra-marca" aria-label="MighT, início">MighT<i>.</i></Link>
+      <nav className="nav" aria-label="Secções">
+        {ABAS.map(([to, t]) => <NavLink key={to} to={to} className={({ isActive }) => (isActive ? 'ativo' : '')}>{t}</NavLink>)}
+      </nav>
+    </header>
   )
 }
 

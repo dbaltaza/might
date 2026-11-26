@@ -22,6 +22,7 @@ create table if not exists mights (
   criado_em timestamptz not null default now()
 );
 create index if not exists mights_para on mights(para_id);
+create index if not exists mights_de on mights(de_id);
 
 -- RLS: aberto para a demo (anon pode ler, criar e mudar o estado). Não usar em produção.
 alter table pessoas enable row level security;
@@ -32,6 +33,8 @@ create policy "demo editar pessoas" on pessoas for update to anon using (true);
 create policy "demo ler mights" on mights for select to anon using (true);
 create policy "demo criar mights" on mights for insert to anon with check (true);
 create policy "demo responder mights" on mights for update to anon using (true);
+
+grant select, insert, update on pessoas, mights to anon;
 
 -- Tempo real: a caixa do apresentador recebe os MighTs da sala sem recarregar.
 alter publication supabase_realtime add table mights;

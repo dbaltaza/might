@@ -34,13 +34,16 @@ export default function Caixa() {
   return (
     <>
       <Topo passo="3 de 6 · Pelos olhos dos outros" />
+      <div className="duas-colunas">
+      <div className="col-hero">
       <Orbita figura={fig.src} pessoas={eu.aceites.map((m) => ({ id: m.id, nome: m.de_nome || 'Alguém' }))} />
       <div className="contador">
         {eu.desbloqueado
           ? <><b>{eu.aceites.length}</b> pessoas reconhecem-te. O teu perfil está aberto.</>
           : <><b>{eu.faltam}</b> MighT{eu.faltam === 1 ? '' : 's'} para abrir o teu perfil</>}
       </div>
-
+      </div>
+      <div className="col-conteudo">
       {pendentes.length > 0 && (
         <div className="vidro lista">
           {pendentes.map((m) => (
@@ -66,6 +69,8 @@ export default function Caixa() {
         ? <Link className="btn" to="/perfil">Ver o meu All MighT</Link>
         : <Link className="btn" to="/pedir">Mostrar o meu código</Link>}
       <button className="link-simular" onClick={simular}>Simular 3 MighTs da sala</button>
+      </div>
+      </div>
     </>
   )
 }

@@ -27,7 +27,9 @@ export async function criarPessoa(nome, tagline = '') {
 
 export async function lerPessoa(id) {
   if (sb) {
-    const { data } = await sb.from('pessoas').select().eq('id', id).single()
+    const { data, error } = await sb.from('pessoas').select().eq('id', id).maybeSingle()
+    if (error?.code === '22P02') return null // id que não é uuid (ex.: vindo do modo local)
+    if (error) throw error
     return data
   }
   return ler('might.pessoas', {})[id] ?? null
