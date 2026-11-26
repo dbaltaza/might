@@ -3,7 +3,7 @@ import { figuraDe } from '../figuraDe.js'
 import FiguraVista from '../FiguraVista.jsx'
 import { useEu } from '../estado.js'
 import { Topo, PARTE, Carregar } from '../ui.jsx'
-import { DIMS } from '../../logica/index.js'
+import { DIMS, DIM_NOME, descricao } from '../../logica/index.js'
 
 // Revelação do Self MighT, e o empurrão para dar antes de pedir.
 export default function Feito() {
@@ -32,6 +32,9 @@ export default function Feito() {
       <div className="tagline">«{fig.tagline}»</div>
       <div className="tres">
         {DIMS.map((d) => <div key={d}><small>{PARTE[d]}</small>{s[d]}</div>)}
+      </div>
+      <div className="vidro lista descricoes">
+        {DIMS.map((d) => <div key={d} className="linha"><div className="meio"><b>{DIM_NOME[d]}</b> {s[d]}<div className="sub">{descricao(d, s[d])}</div></div></div>)}
       </div>
       <div className="vidro">
         <h2>É assim que te vês.</h2>

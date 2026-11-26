@@ -250,3 +250,26 @@ h1 { font-size: 30px; line-height: 1.08; letter-spacing: -0.02em; font-weight: 7
 /* Logótipo da marca (kit 10. Visual identity), pintado com a cor do tema via máscara */
 .marca-logo { display: block; width: 76px; aspect-ratio: 357 / 107; background: currentColor; -webkit-mask: url('/assets/logo-branco.svg') no-repeat center / contain; mask: url('/assets/logo-branco.svg') no-repeat center / contain; }
 .barra-marca .marca-logo { width: 68px; }
+
+/* Acabamento das peças novas (opt-in, carregar, cadeado, falta, QR) */
+.consentimento { display: flex; gap: 10px; align-items: flex-start; margin: 16px 0 4px; font-size: 14px; line-height: 1.4; cursor: pointer; }
+.consentimento input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--plum); flex: none; }
+.carregar { display: grid; justify-items: center; gap: 12px; padding-top: 48px; text-align: center; }
+.carregar-fig { opacity: 0.35; }
+.nav .bloq { color: rgba(255, 255, 255, 0.38); font-size: 12.5px; text-align: center; padding: 10px 2px; display: inline-flex; gap: 4px; align-items: center; justify-content: center; cursor: not-allowed; }
+.cadeado { flex: none; }
+.falta { margin: 0 0 6px; text-align: center; min-height: 1.4em; color: rgba(28, 30, 40, 0.7); }
+.dim small svg { vertical-align: -2px; margin-right: 4px; }
+.dim b.vazio { opacity: 0.5; font-weight: 500; }
+.qr-bloco { width: fit-content; margin: 16px auto 20px; }
+.qr-bloco figcaption { text-align: center; }
+.avatar { object-fit: contain; }
+img.avatar { background: rgba(255, 255, 255, 0.14); padding: 3px; }
+.nota { color: rgba(28, 30, 40, 0.66); }
+.roxo .nota, .vidro .nota { color: rgba(255, 255, 255, 0.75); }
+.link-simular { color: rgba(28, 30, 40, 0.6); }
+.roxo .link-simular { color: rgba(255, 255, 255, 0.6); }
+.btn:disabled { background: var(--plum); opacity: 0.4; color: #fff; }
+.descricoes .linha { padding: 10px 0; }
+.percurso > div:last-child::before { background: transparent; box-shadow: inset 0 0 0 2px var(--branco); }
+.cmp-super { --c: var(--super); }
