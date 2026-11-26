@@ -3,14 +3,15 @@ import { responder, enviarMight } from '../db.js'
 import { useEu, topTag } from '../estado.js'
 import { figuraDe } from '../figuraDe.js'
 import Orbita from '../Orbita.jsx'
-import { Barreira, Topo, inicial } from '../ui.jsx'
+import { Barreira, Topo, Carregar, Progresso, demo } from '../ui.jsx'
+import { figura } from '../../figura/index.js'
 import { PESSOAS_FICTICIAS, CIRCULOS, DIMS } from '../../logica/index.js'
 
 // Passo 3: quem recebe aceita ou recusa. A órbita enche-se; com 3 aceites o perfil abre.
 export default function Caixa() {
   const eu = useEu()
   if (!eu.id) return <Barreira eu={eu} />
-  if (!eu.carregado) return <Topo passo="3 de 6 · Pelos olhos dos outros" />
+  if (!eu.carregado) return <Carregar eu={eu} />
   const pendentes = eu.recebidos.filter((m) => m.estado === 'pendente')
   const s = eu.self || {}
   // Antes de desbloquear: a tua figura. Depois: a figura como os outros te veem.
@@ -34,22 +35,22 @@ export default function Caixa() {
 
   return (
     <>
-      <Topo passo="3 de 6 · Pelos olhos dos outros" />
-      <div className="duas-colunas">
+      <Topo />
+      <div className="duas-colunas ecra-caixa">
       <div className="col-hero">
       <Orbita figura={fig.src} moldura={fig.moldura} pessoas={eu.aceites.map((m) => ({ id: m.id, nome: m.de_nome || 'Alguém' }))} />
-      <div className="contador">
-        {eu.desbloqueado
-          ? <><b>{eu.aceites.length}</b> pessoas reconhecem-te. O teu perfil está aberto.</>
-          : <><b>{eu.faltam}</b> MighT{eu.faltam === 1 ? '' : 's'} para abrir o teu perfil</>}
-      </div>
       </div>
       <div className="col-conteudo">
+      <h1>{eu.desbloqueado ? 'A tua caixa' : `Faltam ${eu.faltam} MighT${eu.faltam === 1 ? '' : 's'}`}</h1>
+      <p className="lead">{eu.desbloqueado
+        ? `${eu.aceites.length} pessoas reconhecem-te. O teu All MighT está aberto.`
+        : 'Aceita os que te reconhecem. Com 3, o teu perfil abre.'}</p>
+      {!eu.desbloqueado && <Progresso n={eu.aceites.length} />}
       {pendentes.length > 0 && (
         <div className="vidro lista">
           {pendentes.map((m) => (
             <div key={m.id} className="linha" style={{ flexWrap: 'wrap' }}>
-              <div className="avatar">{inicial(m.de_nome)}</div>
+              <img className="avatar" src={figura(m.personalidade, m.poder, m.caracter).src} alt="" />
               <div className="meio">
                 <div><b>{m.de_nome || 'Alguém'}</b> <span className="sub">· {m.circulo}</span></div>
                 <div className="sub">{m.personalidade}, {m.poder}, {m.caracter}</div>
@@ -63,13 +64,13 @@ export default function Caixa() {
         </div>
       )}
       {pendentes.length === 0 && !eu.desbloqueado && (
-        <p className="nota" style={{ textAlign: 'center' }}>Ainda não chegaram MighTs. Mostra o teu código a quem te conhece.</p>
+        <p className="nota">Ainda não chegaram MighTs. Mostra o teu código a quem te conhece.</p>
       )}
 
       {eu.desbloqueado
         ? <Link className="btn" to="/perfil">Ver o meu All MighT</Link>
         : <Link className="btn" to="/pedir">Mostrar o meu código</Link>}
-      <button className="link-simular" onClick={simular}>Simular 3 MighTs da sala</button>
+      {demo() && <button className="link-simular" onClick={simular}>Simular 3 MighTs da sala</button>}
       </div>
       </div>
     </>

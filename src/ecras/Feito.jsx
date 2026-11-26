@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom'
 import { figuraDe } from '../figuraDe.js'
 import FiguraVista from '../FiguraVista.jsx'
 import { useEu } from '../estado.js'
-import { Topo, PARTE } from '../ui.jsx'
+import { Topo, PARTE, Carregar } from '../ui.jsx'
 import { DIMS } from '../../logica/index.js'
 
 // Revelação do Self MighT, e o empurrão para dar antes de pedir.
 export default function Feito() {
   const eu = useEu()
   const s = eu.self
-  if (!eu.carregado) return <Topo />
+  if (!eu.carregado) return <Carregar eu={eu} />
   if (!s) {
     return (
       <>
@@ -25,11 +25,11 @@ export default function Feito() {
   const fig = figuraDe(eu.pessoa, s)
   return (
     <>
-      <Topo passo="O teu MighT" />
+      <Topo />
       <div className="ecra-centro">
       <h1 style={{ textAlign: 'center' }}>Olá, {eu.pessoa?.nome}</h1>
       <FiguraVista fig={fig} className="revela" alt={`Figura MighT: ${s.personalidade}, ${s.poder}, ${s.caracter}`} />
-      <div className="tagline">“{fig.tagline}”</div>
+      <div className="tagline">«{fig.tagline}»</div>
       <div className="tres">
         {DIMS.map((d) => <div key={d}><small>{PARTE[d]}</small>{s[d]}</div>)}
       </div>

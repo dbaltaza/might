@@ -2,6 +2,7 @@
 import TAGS_JSON from './tags.json'
 import PESSOAS_JSON from './pessoas_ficticias.json'
 import FUNCOES_JSON from './funcoes.json'
+import DESCRICOES from './descricoes.json'
 
 export const DIMS = ['personalidade', 'poder', 'caracter']
 export const DIM_NOME = { personalidade: 'Personalidade', poder: 'Poder', caracter: 'Carácter' }
@@ -12,6 +13,9 @@ export const TAGS = TAGS_JSON
 
 // [{ id, nome, self: {personalidade, poder, caracter}, mights: [{de, circulo, personalidade, poder, caracter, estado}] }]
 export const PESSOAS_FICTICIAS = PESSOAS_JSON.pessoas
+
+// Descrição curta de cada palavra (escrita com IA, ver descricoes.json)
+export const descricao = (dim, tag) => DESCRICOES[dim]?.[tag] ?? ''
 
 export function tagline(dim, tag) {
   return TAGS[dim]?.find((t) => t.tag === tag)?.tagline ?? ''

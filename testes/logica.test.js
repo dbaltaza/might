@@ -87,3 +87,10 @@ describe('funções ideais (Parte A)', () => {
     expect(r.comoTu).toHaveLength(3)
   })
 })
+
+describe('descrições (escritas com IA)', () => {
+  it('todas as palavras da biblioteca têm descrição', async () => {
+    const { descricao } = await import('../logica/index.js')
+    for (const d of DIMS) for (const { tag } of TAGS[d]) expect(descricao(d, tag).length).toBeGreaterThan(10)
+  })
+})
