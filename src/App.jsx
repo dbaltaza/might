@@ -1,41 +1,62 @@
-import { Routes, Route, Link, NavLink } from 'react-router-dom'
-import { MODO } from './db.js'
+import { Routes, Route, Link, NavLink, useLocation } from 'react-router-dom'
+import { MODO, meuId } from './db.js'
+import Criar from './ecras/Criar.jsx'
+import Feito from './ecras/Feito.jsx'
+import Enviar from './ecras/Enviar.jsx'
+import Pedir from './ecras/Pedir.jsx'
+import Publico from './ecras/Publico.jsx'
+import Caixa from './ecras/Caixa.jsx'
+import Perfil from './ecras/Perfil.jsx'
+import Card from './ecras/Card.jsx'
+import Descobrir from './ecras/Descobrir.jsx'
+import Funcoes from './ecras/Funcoes.jsx'
 
-// Esqueleto: cada ecrã vai para src/ecras/<Nome>.jsx. Todos têm um "seguinte" (sem becos sem saída).
-const Ecra = ({ passo, titulo, texto, seguinte, rotulo = 'Seguinte' }) => (
-  <>
-    {passo && <div className="passo">Passo {passo}</div>}
-    <h1>{titulo}</h1>
-    <p>{texto}</p>
-    {seguinte && <Link className="btn" to={seguinte}>{rotulo}</Link>}
-  </>
-)
+function Entrada() {
+  const tenho = !!meuId()
+  return (
+    <>
+      <div className="logo">MighT<span>.</span></div>
+      <h1>Vê-te pelos olhos de quem te conhece.</h1>
+      <p>O MighT é um sistema de reconhecimento de talento: três palavras de quem te conhece constroem a tua figura e mostram-te funções e carreiras a explorar.</p>
+      <Link className="btn lima" to={tenho ? '/caixa' : '/criar'}>{tenho ? 'Continuar' : 'Cria o teu MighT'}</Link>
+      <p className="nota">Menos de 2 minutos. Sem conta. Só o teu primeiro nome.</p>
+    </>
+  )
+}
 
-const Nav = () => (
-  <nav className="nav">
-    {[['/perfil', 'Perfil'], ['/card', 'Card'], ['/descobrir', 'Descobrir'], ['/funcoes', 'Funções'], ['/pedir', 'Pedir']].map(([to, t]) => (
-      <NavLink key={to} to={to} className={({ isActive }) => (isActive ? 'ativo' : '')}>{t}</NavLink>
-    ))}
-  </nav>
-)
+const ABAS = [['/caixa', 'Caixa'], ['/perfil', 'Perfil'], ['/card', 'Card'], ['/descobrir', 'Descobrir'], ['/funcoes', 'Funções']]
+
+function Nav() {
+  const { pathname } = useLocation()
+  if (!meuId() || pathname === '/' || pathname === '/criar' || pathname.startsWith('/m/')) return null
+  return (
+    <nav className="nav">
+      {ABAS.map(([to, t]) => (
+        <NavLink key={to} to={to} className={({ isActive }) => (isActive ? 'ativo' : '')}>{t}</NavLink>
+      ))}
+    </nav>
+  )
+}
 
 export default function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={<Ecra titulo="Vê-te pelos olhos de quem te conhece." texto="Três palavras constroem o teu MighT e mostram-te funções que encaixam em ti." seguinte="/criar" rotulo="Cria o teu MighT" />} />
-        <Route path="/criar" element={<Ecra passo={1} titulo="Cria o teu MighT" texto="Uma palavra para Personalidade, Poder e Carácter." seguinte="/enviar" />} />
-        <Route path="/enviar" element={<Ecra passo="2A" titulo="Manda um MighT" texto="Para receberes, começa por dar." seguinte="/pedir" />} />
-        <Route path="/pedir" element={<Ecra passo="2B" titulo="Pede MighTs" texto="Partilha o teu link ou o QR." seguinte="/caixa" />} />
-        <Route path="/m/:id" element={<Ecra passo="2B" titulo="Reconhece esta pessoa" texto="Escolhe 3 palavras. Não precisas de conta." seguinte="/" rotulo="Cria também o teu" />} />
-        <Route path="/caixa" element={<Ecra passo={3} titulo="MighTs a chegar" texto="Aceita ou recusa. Com 3 aceites, o perfil desbloqueia." seguinte="/perfil" />} />
-        <Route path="/perfil" element={<Ecra passo={3} titulo="O teu All MighT" texto="Tu, pelos olhos dos outros." seguinte="/card" />} />
-        <Route path="/card" element={<Ecra passo={4} titulo="O teu MighT Card" texto="Descarrega em PNG." seguinte="/descobrir" />} />
-        <Route path="/descobrir" element={<Ecra passo={5} titulo="Pessoas como tu" texto="Ordenadas por % de semelhança." seguinte="/funcoes" />} />
-        <Route path="/funcoes" element={<Ecra passo={6} titulo="Funções ideais" texto="Agora → Próximo → Desafio. Só hipóteses." seguinte="/perfil" rotulo="Voltar ao perfil" />} />
+        <Route path="/" element={<Entrada />} />
+        <Route path="/criar" element={<Criar />} />
+        <Route path="/feito" element={<Feito />} />
+        <Route path="/enviar" element={<Enviar />} />
+        <Route path="/pedir" element={<Pedir />} />
+        <Route path="/m/:id" element={<Publico />} />
+        <Route path="/caixa" element={<Caixa />} />
+        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/card" element={<Card />} />
+        <Route path="/descobrir" element={<Descobrir />} />
+        <Route path="/funcoes" element={<Funcoes />} />
+        <Route path="*" element={<Entrada />} />
       </Routes>
       <Nav />
-      <div style={{ fontSize: 10, color: '#999', textAlign: 'center', marginTop: 24 }}>modo: {MODO}</div>
+      <div className="modo">modo: {MODO}</div>
     </div>
   )
 }

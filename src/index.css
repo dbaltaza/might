@@ -15,3 +15,40 @@ p { color: var(--cinza); }
 .nav { position: fixed; bottom: 0; left: 0; right: 0; display: flex; justify-content: space-around; background: var(--azul); padding: 10px 4px calc(10px + env(safe-area-inset-bottom)); }
 .nav a { color: #fff; text-decoration: none; font-size: 12px; opacity: .7; }
 .nav a.ativo { opacity: 1; color: var(--lima); }
+.logo { font-size: 40px; font-weight: 800; margin-top: 24px; }
+.logo span { color: var(--lima); }
+.campo { width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #d9dfea; font: inherit; margin: 8px 0 4px; background: #fff; }
+.grupo { margin: 16px 0; }
+.rotulo { font-size: 14px; margin: 12px 0 6px; }
+.tl { color: var(--rosa); font-style: italic; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.chip { border: 1.5px solid #c9d1e0; background: #fff; border-radius: 999px; padding: 7px 12px; font: inherit; font-size: 14px; cursor: pointer; color: var(--texto); }
+.chip.on { background: var(--azul); color: #fff; border-color: var(--azul); }
+.fig { text-align: center; background: #fff; border-radius: 20px; padding: 12px; margin: 8px 0; }
+.fig img { height: 150px; }
+.tl-grande { font-style: italic; font-weight: 600; color: var(--rosa); }
+.tags3 { font-size: 13px; color: var(--cinza); margin-top: 4px; }
+.fixo { position: sticky; bottom: 70px; padding-top: 8px; background: linear-gradient(transparent, var(--fundo) 30%); }
+.btn:disabled { opacity: .45; cursor: default; }
+.erro { color: #c0392b; }
+.qr { background: #fff; padding: 16px; border-radius: 16px; display: flex; justify-content: center; margin: 12px 0; }
+.prog { position: relative; height: 26px; background: #e3e8f1; border-radius: 999px; overflow: hidden; margin: 12px 0; }
+.prog div { height: 100%; background: var(--lima); transition: width .4s; }
+.prog span { position: absolute; inset: 0; display: grid; place-items: center; font-size: 13px; font-weight: 700; }
+.cartao { background: #fff; border-radius: 16px; padding: 14px; margin: 10px 0; box-shadow: 0 1px 3px rgba(15,26,58,.08); }
+.cartao.novo { border: 2px solid var(--ciano); }
+.lado { display: flex; gap: 8px; } .lado .btn { margin-top: 8px; }
+.lado-txt { display: flex; justify-content: space-between; align-items: center; }
+.pct { font-weight: 800; font-size: 20px; color: var(--ciano); }
+.nuvem { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; line-height: 1.2; }
+.nuvem span { font-weight: 700; } .nuvem small { font-size: 11px; color: var(--cinza); font-weight: 400; }
+.nuvem .meu { color: var(--rosa); }
+.compara { font-size: 13px; margin-top: 8px; padding: 8px; border-radius: 10px; }
+.compara.confirma { background: #eefad0; } .compara.so-tu { background: #fde6ee; }
+.nota { font-size: 12px; color: var(--cinza); }
+.card-wrap { overflow-x: auto; margin: 12px 0; }
+.percurso { display: flex; align-items: center; gap: 6px; font-size: 12px; text-align: center; margin: 8px 0; }
+.percurso span { flex: 1; background: var(--fundo); border-radius: 10px; padding: 6px; }
+.porque { font-style: italic; color: var(--azul); font-size: 14px; }
+.link-simular { background: none; border: 0; color: var(--cinza); text-decoration: underline; font: inherit; font-size: 12px; margin: 16px auto; display: block; cursor: pointer; }
+.modo { font-size: 10px; color: #aab; text-align: center; margin-top: 24px; }
