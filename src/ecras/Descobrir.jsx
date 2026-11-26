@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useEu } from '../estado.js'
-import { Barreira } from '../ui.jsx'
+import { Barreira, Topo, inicial } from '../ui.jsx'
 import { maisParecidos, PESSOAS_FICTICIAS, DIMS, DIM_NOME } from '../../logica/index.js'
 
 // Passo 5: pessoas como tu, por % de peso sobreposto.
@@ -16,22 +16,26 @@ function Conteudo({ eu }) {
   const lista = maisParecidos({ pesos: eu.pesos }, PESSOAS_FICTICIAS, dims).slice(0, 8)
   return (
     <>
-      <div className="passo">Passo 5 · Descobrir</div>
-      <h1>Pessoas como tu</h1>
-      <div className="chips">
-        {['todas', ...DIMS].map((d) => (
-          <button key={d} className={'chip' + (dim === d ? ' on' : '')} onClick={() => setDim(d)}>{d === 'todas' ? 'Todas' : DIM_NOME[d]}</button>
+      <Topo passo="5 de 6 · Pessoas como tu" />
+      <h1>Quem é reconhecido como tu</h1>
+      <div className="segmentos" style={{ flexWrap: 'wrap' }}>
+        {['todas', ...DIMS].map((d) => <button key={d} className={dim === d ? 'on' : ''} onClick={() => setDim(d)}>{d === 'todas' ? 'Tudo' : DIM_NOME[d]}</button>)}
+      </div>
+      <div className="vidro lista">
+        {lista.map(({ pessoa, pct, comuns, diferenca }) => (
+          <div key={pessoa.id} className="linha">
+            <div className="avatar">{inicial(pessoa.nome)}</div>
+            <div className="meio">
+              <b>{pessoa.nome}</b>
+              <div className="sub">Em comum: {comuns.slice(0, 3).join(', ') || 'nada ainda'}</div>
+              {diferenca && <div className="sub">Maior diferença: {diferenca.tag} ({DIM_NOME[diferenca.dim]})</div>}
+            </div>
+            <div className="pct">{pct}%</div>
+          </div>
         ))}
       </div>
-      {lista.map(({ pessoa, pct, comuns, diferenca }, i) => (
-        <div key={pessoa.id} className={'cartao' + (i === 0 ? ' novo' : '')}>
-          <div className="lado-txt"><b>{pessoa.nome}</b><span className="pct">{pct}%</span></div>
-          <div className="nota">Em comum: {comuns.slice(0, 4).join(', ') || '—'}</div>
-          {diferenca && <div className="nota">Maior diferença: {DIM_NOME[diferenca.dim]} · {diferenca.tag}</div>}
-        </div>
-      ))}
-      <p className="nota">Semelhança = % de peso sobreposto nas tags (dados fictícios).</p>
-      <Link className="btn lima" to="/funcoes">Ver funções que encaixam em mim</Link>
+      <p className="nota">Semelhança = quanto do peso das palavras de cada pessoa coincide com o teu. Pessoas e palavras fictícias.</p>
+      <Link className="btn" to="/funcoes">Ver funções que encaixam em mim</Link>
     </>
   )
 }

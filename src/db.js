@@ -84,3 +84,11 @@ export function ouvirMights(paraId, cb) {
   window.addEventListener('storage', onStorage)
   return () => { ouvintes.delete(cb); window.removeEventListener('storage', onStorage) }
 }
+
+// Recomeçar a demo: apaga o que este browser guardou (identidade e, em modo local, todos os dados).
+// Em modo Supabase os dados na nuvem ficam; este telemóvel só deixa de ser "eu".
+export function limparTudo() {
+  try {
+    Object.keys(localStorage).filter((k) => k.startsWith('might.')).forEach((k) => localStorage.removeItem(k))
+  } catch { /* sem storage */ }
+}

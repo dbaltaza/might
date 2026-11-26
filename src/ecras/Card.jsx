@@ -1,12 +1,12 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useEu, topTag } from '../estado.js'
-import { Barreira } from '../ui.jsx'
+import { Barreira, Topo } from '../ui.jsx'
 import { figura } from '../../figura/index.js'
 import { MightCard, descarregarPNG } from '../../card/MightCard.jsx'
 import { sb } from '../db.js'
 
-// Passo 4: MighT Card. Tu, pelos olhos dos outros. Download em PNG.
+// Passo 4: MighT Card (o componente é da Parte B). Tu, pelos olhos dos outros.
 export default function Card() {
   const eu = useEu()
   return <Barreira eu={eu}><Conteudo eu={eu} /></Barreira>
@@ -26,25 +26,26 @@ function Conteudo({ eu }) {
 
   return (
     <>
-      <div className="passo">Passo 4 · MighT Card</div>
+      <Topo passo="4 de 6 · MighT Card" />
       <h1>Apresenta-te com provas</h1>
-      <div className="chips">
+      <div className="segmentos">
         {[['retrato', 'Retrato'], ['linkedin', 'LinkedIn']].map(([f, t]) => (
-          <button key={f} className={'chip' + (formato === f ? ' on' : '')} onClick={() => setFormato(f)}>{t}</button>
+          <button key={f} className={formato === f ? 'on' : ''} onClick={() => setFormato(f)}>{t}</button>
         ))}
       </div>
-      <div className="card-wrap">
+      <div className="card-palco">
         <MightCard ref={ref} formato={formato} pessoa={{ nome: eu.pessoa?.nome, tagline: fig.tagline, figura: fig.src }} pesos={eu.pesos} circulos={circulos} />
       </div>
-      <button className="btn lima" onClick={() => descarregarPNG(ref, eu.pessoa?.nome)}>Descarregar PNG</button>
-      <div className="cartao">
-        <b>Publicavas?</b> Nada fica público sem o teu consentimento.
+      <button className="btn" onClick={() => descarregarPNG(ref, eu.pessoa?.nome)}>Descarregar PNG</button>
+      <div className="vidro">
+        <h2>Publicavas?</h2>
+        <p className="nota" style={{ marginTop: 0 }}>O teu MighT só fica público se disseres que sim.</p>
         <div className="lado">
-          <button className={'btn ' + (publicar === true ? '' : 'sec')} onClick={() => responderPublicar(true)}>Sim</button>
-          <button className={'btn ' + (publicar === false ? '' : 'sec')} onClick={() => responderPublicar(false)}>Agora não</button>
+          <button className={'btn peq ' + (publicar === true ? '' : 'fantasma')} onClick={() => responderPublicar(true)}>Sim, publicava</button>
+          <button className={'btn peq ' + (publicar === false ? '' : 'fantasma')} onClick={() => responderPublicar(false)}>Agora não</button>
         </div>
       </div>
-      <Link className="btn" to="/descobrir">Descobrir pessoas como eu</Link>
+      <Link className="btn sec" to="/descobrir">Descobrir pessoas como eu</Link>
     </>
   )
 }

@@ -2,51 +2,64 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { criarPessoa, enviarMight } from '../db.js'
 import { useEu, marcarEnviou, linkPublico } from '../estado.js'
-import { EscolherTags, EscolherCirculo, tagsCompletas, Barreira } from '../ui.jsx'
+import { figura } from '../../figura/index.js'
+import { TresPalavras, EscolherCirculo, tagsCompletas, Barreira, Topo } from '../ui.jsx'
 
-// Passo 2A: Manda MighT. Uma pessoa, um círculo e 3 tags.
+// Passo 2A: Manda MighT. Uma pessoa, um círculo e 3 palavras.
 export default function Enviar() {
   const eu = useEu()
   const [nome, setNome] = useState('')
   const [circulo, setCirculo] = useState('')
   const [tags, setTags] = useState({})
   const [enviado, setEnviado] = useState(null)
-  const pronto = nome.trim() && circulo && tagsCompletas(tags)
+  const [aEnviar, setAEnviar] = useState(false)
+  const n = nome.trim().split(' ')[0]
+  const pronto = n && circulo && tagsCompletas(tags)
 
   if (!eu.id) return <Barreira eu={eu} />
 
   async function enviar() {
+    setAEnviar(true)
     // Sem multiutilizador real: quem recebe é criado como pessoa nova; o convite é o link dela.
-    const para = await criarPessoa(nome.trim().split(' ')[0])
+    const para = await criarPessoa(n)
     await enviarMight({ de_id: eu.id, de_nome: eu.pessoa?.nome, para_id: para.id, circulo, ...tags, estado: 'pendente' })
     marcarEnviou()
     setEnviado(para)
+    setAEnviar(false)
   }
 
   if (enviado) {
+    const fig = figura(tags.personalidade, tags.poder, tags.caracter)
     const link = linkPublico(enviado.id)
     return (
       <>
-        <div className="passo">Passo 2A · Enviado</div>
-        <h1>MighT enviado à {enviado.nome}!</h1>
-        <p>A {enviado.nome} recebe um convite para aceitar o teu MighT e retribuir. (Simulado: não enviamos emails.)</p>
-        {navigator.share && <button className="btn sec" onClick={() => navigator.share({ title: 'Recebeste um MighT', url: link })}>Partilhar convite</button>}
-        <Link className="btn lima" to="/pedir">Agora pede MighTs para ti</Link>
+        <Topo passo="2 de 6 · Enviado" />
+        <h1>Mandaste um MighT a {enviado.nome}</h1>
+        <div className="figura"><img src={fig.src} alt="" /></div>
+        <div className="tagline">“{fig.tagline}”</div>
+        <div className="vidro">
+          <p className="nota" style={{ margin: 0 }}>{enviado.nome} recebe um convite para aceitar e retribuir. Nesta versão o convite é um link: partilha-o tu.</p>
+          {navigator.share && <button className="btn fantasma" onClick={() => navigator.share({ title: `${eu.pessoa?.nome} mandou-te um MighT`, url: link })}>Partilhar o convite</button>}
+        </div>
+        <Link className="btn" to="/pedir">Pedir MighTs para mim</Link>
       </>
     )
   }
 
   return (
     <>
-      <div className="passo">Passo 2A · Manda MighT</div>
-      <h1>Reconhece quem te é próximo</h1>
-      <p>Para receberes, começa por dar. Escolhe alguém que conheces bem e em quem vês potencial.</p>
-      <input className="campo" placeholder="Primeiro nome da pessoa" value={nome} onChange={(e) => setNome(e.target.value)} />
-      <div className="rotulo">De onde a conheces?</div>
+      <Topo passo="2 de 6 · Dar" />
+      <h1>Reconhece alguém próximo</h1>
+      <p className="lead">Alguém que conheces bem e em quem vês potencial.</p>
+      <input className="campo" placeholder="Primeiro nome dessa pessoa" value={nome} onChange={(e) => setNome(e.target.value)} />
+      <div className="rotulo">De onde se conhecem?</div>
       <EscolherCirculo valor={circulo} onChange={setCirculo} />
-      <EscolherTags valor={tags} onChange={setTags} />
+      <div style={{ height: 14 }} />
+      <TresPalavras valor={tags} onChange={setTags} sobre={n || 'essa pessoa'} />
       <div className="fixo">
-        <button className="btn lima" disabled={!pronto} onClick={enviar}>{pronto ? 'Enviar MighT' : 'Nome, círculo e 3 palavras'}</button>
+        <button className="btn" disabled={!pronto || aEnviar} onClick={enviar}>
+          {aEnviar ? 'A enviar…' : pronto ? `Mandar MighT a ${n}` : !n ? 'Escreve o nome' : !circulo ? 'Escolhe o círculo' : 'Escolhe as 3 palavras'}
+        </button>
       </div>
     </>
   )
