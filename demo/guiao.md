@@ -1,11 +1,11 @@
 # Guião da demo (3 min) — uma só voz, sem notas
 
-Preparar antes: **reiniciar o cronómetro** (`reiniciar()` ou o link "Reiniciar") · telemóvel do apresentador espelhado no ecrã · dados fictícios carregados ·
+Preparar antes: telemóvel do apresentador espelhado no ecrã · dados fictícios carregados ·
 3 pessoas da equipa (ou da sala) prontas a enviar um MighT · botão "simular" como plano B.
 
 | Tempo | Ecrã | O que se diz (uma frase) | O que se faz |
 |---|---|---|---|
-| 0:00 | 1 · Criar | "Os CVs dizem o que fizeste. O MighT diz como os outros te veem." | Escolher 3 tags → figura + tagline. O relógio corre no canto; no fim aparece **"Criaste o teu MighT em N s"**. Ler o número em voz alta. |
+| 0:00 | 1 · Criar | "Os CVs dizem o que fizeste. O MighT diz como os outros te veem." | Escolher 3 tags → figura + tagline. Dizer quanto tempo demorou (medido no teste com um utilizador novo). |
 | 0:35 | 2 · Enviar / pedir | "Para receber, começas por dar." | Enviar um MighT (pessoa, círculo, 3 tags) → aparece "Pede MighT" com o link |
 | 1:00 | 3 · Perfil | "Três pessoas desta sala acabaram de me reconhecer." | Aceitar 3 MighTs → o perfil desbloqueia |
 | 1:25 | 3 · All vs Self | "Eu disse ___; os outros disseram ___." | Mostrar o ponto cego (a dimensão que não coincide) |
