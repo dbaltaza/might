@@ -63,3 +63,8 @@ export const marcarEnviou = () => { try { localStorage.setItem(k, '1') } catch {
 
 export const topTag = (pesosDim) => Object.entries(pesosDim || {}).sort((a, b) => b[1] - a[1])[0]?.[0]
 export const linkPublico = (id) => `${location.origin}${location.pathname}#/m/${id}`
+
+// Duelos abertos já, sem os 3 MighTs: até desbloquear, usa as palavras do Self MighT.
+// ponytail: atalho para a demo; tirem `livre` nos ecrãs de duelo para voltar a exigir 3.
+export const pesosDuelo = (eu) =>
+  eu.desbloqueado || !eu.self ? eu.pesos : { personalidade: { [eu.self.personalidade]: 1 }, poder: { [eu.self.poder]: 1 }, caracter: { [eu.self.caracter]: 1 } }

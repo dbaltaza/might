@@ -15,9 +15,10 @@ export default function Publico() {
   const [feito, setFeito] = useState(false)
   const [aEnviar, setAEnviar] = useState(false)
   const [erro, setErro] = useState('')
+  const [consente, setConsente] = useState(false)
   const [ativa, setAtiva] = useState('personalidade')
   useEffect(() => { lerPessoa(id).then(setPessoa).catch(() => setPessoa(null)) }, [id])
-  const pronto = nome.trim() && circulo && tagsCompletas(tags)
+  const pronto = nome.trim() && circulo && tagsCompletas(tags) && consente
 
   if (pessoa === undefined) return <Topo />
   if (pessoa === null) {
@@ -71,10 +72,15 @@ export default function Publico() {
           <EscolherCirculo valor={circulo} onChange={setCirculo} />
           <div style={{ height: 14 }} />
           <TresPalavras valor={tags} onChange={setTags} sobre={pessoa.nome} onAtiva={setAtiva} />
+          {/* Opt-in: MighTs reais só com consentimento e apenas o primeiro nome */}
+          <label className="consentimento">
+            <input type="checkbox" checked={consente} onChange={(e) => setConsente(e.target.checked)} />
+            <span>Aceito que {pessoa.nome} veja o meu primeiro nome e as 3 palavras. Nada fica público sem a autorização de {pessoa.nome}.</span>
+          </label>
           {erro && <p className="erro">{erro}</p>}
           <div className="fixo">
             <button className="btn" disabled={!pronto || aEnviar} onClick={enviar}>
-              {aEnviar ? 'A enviar…' : pronto ? `Mandar MighT a ${pessoa.nome}` : !nome.trim() ? 'Escreve o teu nome' : !circulo ? 'Escolhe o círculo' : 'Escolhe as 3 palavras'}
+              {aEnviar ? 'A enviar…' : pronto ? `Mandar MighT a ${pessoa.nome}` : !nome.trim() ? 'Escreve o teu nome' : !circulo ? 'Escolhe o círculo' : !tagsCompletas(tags) ? 'Escolhe as 3 palavras' : 'Aceita para enviar'}
             </button>
           </div>
         </div>

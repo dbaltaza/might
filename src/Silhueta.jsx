@@ -30,7 +30,7 @@ export function PreviaFigura({ tags = {}, ativa, artista }) {
     return (
       <div className="previa">
         <FiguraVista fig={fig} className="revela" key={fig.src} alt={`Figura MighT: ${tags.personalidade}, ${tags.poder}, ${tags.caracter}`} />
-        <div className="tagline">“{fig.tagline}”</div>
+        <div className="tagline">«{fig.tagline}»</div>
       </div>
     )
   }
